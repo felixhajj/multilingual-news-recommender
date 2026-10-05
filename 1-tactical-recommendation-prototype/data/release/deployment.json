@@ -1,6 +1,7 @@
 {
   "repository": "https://github.com/felixhajj/multilingual-news-recommender",
-  "landing_page": null,
+  "landing_page": "https://felixhajj.github.io/multilingual-news-recommender/",
   "live_demo": "https://huggingface.co/spaces/felixhajj/multilingual-news-recommender",
-  "status": "uploaded_hosted_verification_pending"
+  "status": "hosted_functional_checks_verified",
+  "space_revision": "e6fd21fad53d705a98b6f1151948c3dc45e2fa90"
 }

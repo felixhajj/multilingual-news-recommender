@@ -1,0 +1,296 @@
+{
+  "checked_at": "2026-10-05T09:50:11.422874+00:00",
+  "status": "hosted_functional_checks_passed_artifact_finalization_pending",
+  "public_api_checks": {
+    "changed_interest_changes_ranking": true,
+    "current_300_article_index": true,
+    "selected_result_explanation": true,
+    "empty_interest_visible": true,
+    "evidence_endpoint_available": true,
+    "edited_text_new_inference_identity": true
+  },
+  "hosted_examples": [
+    {
+      "language": "en",
+      "kind": "synthetic integration input, not quality evaluation",
+      "article": {
+        "source_url": null,
+        "source_id": null,
+        "author": null,
+        "license_id": null,
+        "license_url": null,
+        "date": null,
+        "date_kind": null,
+        "language": null,
+        "source_revision": null,
+        "title": "Synthetic release verification 2026-10-05 EN",
+        "body": "This is a synthetic software verification article, not a news report. Officials from France met officials from Lebanon in Beirut to discuss education cooperation and schools. A previously unknown group called Zorvanta Civic Initiative attended the discussion.",
+        "article_id": "44913abaae6d7d7483ae"
+      },
+      "extraction": {
+        "countries": [
+          "France",
+          "Lebanon"
+        ],
+        "locations": [
+          "Beirut"
+        ],
+        "companies": [],
+        "organizations": [
+          "Zorvanta Civic Initiative"
+        ],
+        "profiles": [
+          "Officials from France",
+          "Officials from Lebanon",
+          "Zorvanta Civic Initiative"
+        ],
+        "systems": [],
+        "topics": [
+          "education cooperation",
+          "schools"
+        ],
+        "relationships": [
+          {
+            "subject": "Officials from France",
+            "relation": "met",
+            "object": "Officials from Lebanon"
+          },
+          {
+            "subject": "Officials from France",
+            "relation": "met",
+            "object": "Zorvanta Civic Initiative"
+          },
+          {
+            "subject": "Officials from Lebanon",
+            "relation": "met",
+            "object": "Zorvanta Civic Initiative"
+          }
+        ]
+      },
+      "cache_key": "e646b2d32115df4ed02dab017716dcea2fd053822215de507c8369d46cb05d7e",
+      "model": {
+        "base": "Qwen/Qwen2.5-3B-Instruct",
+        "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+        "adapter_sha256": "82739bdebf112e5eb6f5bf8e31f4e2845a04d5a11c69624293b076eeda844a51",
+        "adapter_config_sha256": "2353cfd25010b497654882dac324ebc6ab2dd18a6bdf3ee74cab63733868644f",
+        "tokenizer_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+        "tokenizer_files": {
+          "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+          "special_tokens_map.json": "890efa1686cf49870d5018b948316d11c6d9ce121a942803eeb4224dcc7db3f0",
+          "tokenizer.json": "9c5ae00e602b8860cbd784ba82a8aa14e8feecec692e7076590d014d7b7fdafa",
+          "tokenizer_config.json": "0d2be11c79ca0320ee8f81abe61f98f4b043df0cd2784109100fb5b21dc78d0b",
+          "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+        },
+        "prompt_sha256": "a5d8e6f21028065254d4d97961a5ed5626224f321080a938d39baa75ec2ff4d3",
+        "schema_version": "extraction-v3-locations",
+        "max_new_tokens": 768,
+        "chunk_tokens": 512,
+        "chunk_stride": 480,
+        "adapter_enabled": true,
+        "execution": {
+          "quantization": "none",
+          "dtype": "float16"
+        },
+        "run_id": "extraction-only-v3"
+      },
+      "elapsed_seconds": 6.008,
+      "mistakes_observed": [
+        "Generic officials incorrectly listed as people; unreviewed relationships"
+      ]
+    },
+    {
+      "language": "ar",
+      "kind": "synthetic integration input, not quality evaluation",
+      "article": {
+        "source_url": null,
+        "source_id": null,
+        "author": null,
+        "license_id": null,
+        "license_url": null,
+        "date": null,
+        "date_kind": null,
+        "language": null,
+        "source_revision": null,
+        "title": "تحقق اصطناعي عربي من النشر 2026-10-05",
+        "body": "هذا نص اصطناعي لاختبار البرنامج وليس خبراً حقيقياً. اجتمع مسؤولون من فرنسا ولبنان في بيروت لمناقشة التعاون في التعليم وتطوير المدارس.",
+        "article_id": "d100dc89c28b667fc0b6"
+      },
+      "extraction": {
+        "countries": [
+          "فرنسا",
+          "لبنان",
+          "بيروت"
+        ],
+        "locations": [
+          "بيروت"
+        ],
+        "companies": [],
+        "organizations": [],
+        "profiles": [],
+        "systems": [],
+        "topics": [
+          "التعاون",
+          "التعليم",
+          "تطوير المدارس"
+        ],
+        "relationships": [
+          {
+            "subject": "مسؤولون",
+            "relation": "اجتمع",
+            "object": "فرنسا ولبنان"
+          }
+        ]
+      },
+      "cache_key": "1e72c672278503b7f71355d6613a6dfdd9cfd57279a833f0f7ba600d1c242366",
+      "model": {
+        "base": "Qwen/Qwen2.5-3B-Instruct",
+        "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+        "adapter_sha256": "82739bdebf112e5eb6f5bf8e31f4e2845a04d5a11c69624293b076eeda844a51",
+        "adapter_config_sha256": "2353cfd25010b497654882dac324ebc6ab2dd18a6bdf3ee74cab63733868644f",
+        "tokenizer_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+        "tokenizer_files": {
+          "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+          "special_tokens_map.json": "890efa1686cf49870d5018b948316d11c6d9ce121a942803eeb4224dcc7db3f0",
+          "tokenizer.json": "9c5ae00e602b8860cbd784ba82a8aa14e8feecec692e7076590d014d7b7fdafa",
+          "tokenizer_config.json": "0d2be11c79ca0320ee8f81abe61f98f4b043df0cd2784109100fb5b21dc78d0b",
+          "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+        },
+        "prompt_sha256": "a5d8e6f21028065254d4d97961a5ed5626224f321080a938d39baa75ec2ff4d3",
+        "schema_version": "extraction-v3-locations",
+        "max_new_tokens": 768,
+        "chunk_tokens": 512,
+        "chunk_stride": 480,
+        "adapter_enabled": true,
+        "execution": {
+          "quantization": "none",
+          "dtype": "float16"
+        },
+        "run_id": "extraction-only-v3"
+      },
+      "elapsed_seconds": 3.461,
+      "mistakes_observed": [
+        "Beirut incorrectly listed as a country"
+      ]
+    }
+  ],
+  "clean_dependency_metric_replay": {
+    "status": "passed",
+    "scope": "Isolated source/artifacts and separate dependency environment; offline saved-metric replay, not fresh inference",
+    "protected_evidence_unchanged": true,
+    "extraction": {
+      "examples": 20,
+      "json_parse_validity": 1.0,
+      "schema_validity": 0.95,
+      "precision": 0.49019607843137253,
+      "recall": 0.2304147465437788,
+      "micro_f1": 0.31347962382445144,
+      "true_positive": 50,
+      "false_positive": 52,
+      "false_negative": 167,
+      "schema_version": "extraction-v3-locations",
+      "scored_categories": [
+        "countries",
+        "locations",
+        "companies",
+        "organizations",
+        "profiles",
+        "systems"
+      ],
+      "scope": "exact normalized surface named entities; topics and relationships are schema-validated but not scored",
+      "by_language": {
+        "en": {
+          "examples": 10,
+          "json_parse_validity": 1.0,
+          "schema_validity": 0.9,
+          "precision": 0.6041666666666666,
+          "recall": 0.21481481481481482,
+          "micro_f1": 0.31693989071038253,
+          "true_positive": 29,
+          "false_positive": 19,
+          "false_negative": 106,
+          "schema_version": "extraction-v3-locations",
+          "scored_categories": [
+            "countries",
+            "locations",
+            "companies",
+            "organizations",
+            "profiles",
+            "systems"
+          ],
+          "scope": "exact normalized surface named entities; topics and relationships are schema-validated but not scored"
+        },
+        "ar": {
+          "examples": 10,
+          "json_parse_validity": 1.0,
+          "schema_validity": 1.0,
+          "precision": 0.3888888888888889,
+          "recall": 0.25609756097560976,
+          "micro_f1": 0.3088235294117647,
+          "true_positive": 21,
+          "false_positive": 33,
+          "false_negative": 61,
+          "schema_version": "extraction-v3-locations",
+          "scored_categories": [
+            "countries",
+            "locations",
+            "companies",
+            "organizations",
+            "profiles",
+            "systems"
+          ],
+          "scope": "exact normalized surface named entities; topics and relationships are schema-validated but not scored"
+        }
+      }
+    },
+    "ranking": {
+      "keyword": {
+        "recall_at_5": 0.5,
+        "ndcg_at_5": 0.6118293150285805
+      },
+      "e5": {
+        "recall_at_5": 0.5,
+        "ndcg_at_5": 0.9564837712379726
+      },
+      "hybrid": {
+        "recall_at_5": 0.5,
+        "ndcg_at_5": 0.9564837712379726
+      }
+    }
+  },
+  "browser_checks": {
+    "mobile_viewport": [
+      390,
+      844
+    ],
+    "pages_no_horizontal_overflow": true,
+    "app_no_horizontal_overflow": true,
+    "local_server_8502_stopped": true,
+    "fresh_english_ui_inference": true,
+    "fresh_arabic_ui_inference": true,
+    "physical_second_device_confirmation": "pending user confirmation",
+    "desktop_viewport": [
+      1280,
+      900
+    ],
+    "app_desktop_no_horizontal_overflow": true,
+    "failed_input_clears_outputs_and_reenables_controls": true,
+    "gpu_lease_rejection_visible_and_controls_reenabled": true,
+    "gpu_lease_rejection_space_revision": "e6fd21fad53d705a98b6f1151948c3dc45e2fa90",
+    "gpu_lease_rejection_message": "You have exceeded your ZeroGPU runs limit",
+    "post_repair_fresh_english_and_arabic_free_account_inference": true
+  },
+  "regression_tests": {
+    "passed": 143,
+    "elapsed_seconds": 37.859,
+    "command": "python -m unittest discover -s tests -v",
+    "focused_range_download_tests_passed": 4,
+    "interpreter_symlink_regression_passed": true,
+    "lease_rejection_and_early_input_validation_passed": true
+  },
+  "independent_audit": {
+    "assistant": "Astra High",
+    "final_code_audit": "no remaining blocking findings",
+    "residual_blocking_findings": 0,
+    "scope": "Read-only code/mock checks; not a substitute for final artifact verification"
+  }
+}

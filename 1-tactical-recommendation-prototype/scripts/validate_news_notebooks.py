@@ -10,7 +10,7 @@ from src.portfolio_config import ROOT, ARTIFACTS, digest, file_digest, read_json
 NOTEBOOKS = ("tactical_report_a_to_z_walkthrough.ipynb",
              "tactical_report_entity_extraction_qlora.ipynb",
              "tactical_report_recommendation_demo.ipynb")
-RUNTIME_FILES = ("portfolio_app.py", "src/news_pipeline.py", "src/news_store.py",
+RUNTIME_FILES = ("app.py", "portfolio_app.py", "src/news_pipeline.py", "src/news_store.py",
                  "src/news_evaluation.py", "src/news_selection.py", "src/llm_extractor.py",
                  "src/learned_linker.py", "src/embeddings.py", "src/phase3_configuration.py")
 

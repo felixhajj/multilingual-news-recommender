@@ -11,7 +11,7 @@ if os.getenv("SPACE_ID") and os.getenv("NEWS_ZEROGPU") == "1":
 
 import gradio as gr
 
-from src.news_pipeline import NewsPipeline
+from src.news_pipeline import NewsPipeline, validate_article
 from src.news_evaluation import validate_review, validate_ranking_review
 from src.portfolio_config import (ARTIFACTS, ROOT, EMBEDDING_MODEL, EMBEDDING_REVISION,
                                   PIPELINE_VERSION, digest, read_json, read_jsonl, write_jsonl)
@@ -43,6 +43,29 @@ def ranked_html(payload):
 
 
 FILTER_FIELDS = ("countries", "locations", "companies", "organizations", "profiles", "systems", "topics")
+
+
+def gpu_duration(title, text, *_args, **_kwargs):
+    # Reserve less quota for short examples while bounding longer requests.
+    return min(120, max(30, 20 + len(text or "") // 120))
+
+
+def clear_analysis():
+    return ("<p class='notice'>Waiting for fresh model analysis. Free GPU queue or quota limits "
+            "may block this request; no saved answer is substituted.</p>",
+            {}, [], {}, {"status": "requested"})
+
+
+def analysis_controls(interactive):
+    return [gr.update(interactive=interactive) for _ in range(4 + len(FILTER_FIELDS))]
+
+
+def begin_analysis():
+    return (*clear_analysis(), *analysis_controls(False))
+
+
+def end_analysis():
+    return analysis_controls(True)
 
 
 def filters(*values):
@@ -121,8 +144,19 @@ def explain_selected(cache_key, interest, country, location, company, organizati
         return f"<p class='notice'>{html.escape(str(exc))}</p>", {"status": "unavailable", "error": str(exc)}
 
 
-def analyze(title, text, interest, country, location, company, organization, profile, system, topic,
-            progress=gr.Progress()):
+def analysis_failure(exc):
+    raw_outputs = getattr(exc, "raw_outputs", None)
+    if raw_outputs is None and getattr(exc, "raw_output", None):
+        raw_outputs = [exc.raw_output]
+    trace = {"status": "failed", "error": str(exc),
+             "raw_model_outputs": raw_outputs or [],
+             "chunk_metadata": getattr(exc, "chunk_metadata", [])}
+    return (f"<p class='notice'>Analysis unavailable: {html.escape(str(exc))}</p>",
+            {}, [], {}, trace)
+
+
+def _analyze_core(title, text, interest, country, location, company, organization, profile, system, topic,
+                  progress=gr.Progress()):
     filter_values = (country, location, company, organization, profile, system, topic)
     try:
         progress(0.1, desc="Qwen + LoRA: reading article")
@@ -139,21 +173,29 @@ def analyze(title, text, interest, country, location, company, organization, pro
         progress(1, desc="Complete")
         return summary + explanation_html(explanation), result["extraction"], links, explanation, result
     except (ValueError, RuntimeError, OSError) as exc:
-        raw_outputs = getattr(exc, "raw_outputs", None)
-        if raw_outputs is None and getattr(exc, "raw_output", None):
-            raw_outputs = [exc.raw_output]
-        trace = {"status": "failed", "error": str(exc),
-                 "raw_model_outputs": raw_outputs or [],
-                 "chunk_metadata": getattr(exc, "chunk_metadata", [])}
-        return (f"<p class='notice'>Analysis unavailable: {html.escape(str(exc))}</p>",
-                {}, [], {}, trace)
+        return analysis_failure(exc)
 
 
+_run_analysis = _analyze_core
 if os.getenv("SPACE_ID") and os.getenv("NEWS_ZEROGPU") == "1":
     import spaces
     # ZeroGPU requires placement during startup, outside the decorated request.
     get_pipeline().backend.load()
-    analyze = spaces.GPU(duration=120)(analyze)
+    _run_analysis = spaces.GPU(duration=gpu_duration)(_analyze_core)
+
+
+def analyze(title, text, interest, country, location, company, organization, profile, system, topic,
+            progress=gr.Progress()):
+    try:
+        # Reject invalid inputs before acquiring a lease or consuming GPU quota.
+        validate_article({"title": title, "body": text})
+        if not isinstance(interest, str) or not interest.strip() or len(interest) > 1500:
+            raise ValueError("Enter an interest statement between 1 and 1,500 characters")
+        return _run_analysis(title, text, interest, country, location, company,
+                             organization, profile, system, topic, progress=progress)
+    except (ValueError, RuntimeError, OSError, gr.Error) as exc:
+        # Lease rejection occurs outside the decorated function's own handler.
+        return analysis_failure(exc)
 
 
 CSS = """
@@ -265,7 +307,12 @@ def build_app():
                 explained = gr.JSON(label="Meaning, matching filters and supporting phrases")
                 with gr.Accordion("Full inference trace", open=False):
                     trace = gr.JSON()
-                generate.click(analyze, [title, text, interest, *filter_inputs], [status, generated_json, links, explained, trace])
+                analysis_outputs = [status, generated_json, links, explained, trace]
+                controls = [title, text, interest, *filter_inputs, generate]
+                generate.click(begin_analysis, outputs=[*analysis_outputs, *controls], queue=False,
+                               api_name=False).then(
+                    analyze, [title, text, interest, *filter_inputs], analysis_outputs, api_name="analyze").then(
+                    end_analysis, outputs=controls, queue=False, api_name=False)
         with gr.Tab("How it works"):
             gr.HTML("<div class='flow'><div><strong>Qwen + LoRA</strong>Article text becomes structured mentions.</div>"
                     "<div><strong>Learned entity linker</strong>Context helps choose an entity ID, or abstain.</div>"
@@ -278,6 +325,7 @@ def build_app():
                     gr.Code(cell["source"], language="python", label=stage)
         with gr.Tab("Evidence"):
             gr.Markdown("Training and evaluation reports are read from saved run artifacts. Missing metrics remain pending. Machine-generated training labels and human-reviewed test labels are reported separately.")
+            gr.Markdown("Saved extraction metrics measure the local 4-bit execution profile. The hosted demo uses the same selected adapter with float16 base weights and a separate execution identity. Hosted smoke checks prove functionality, not identical quality scores.")
             report = gr.JSON(value=evidence_report(), label="Measured evidence and current status")
             gr.Button("Refresh evidence").click(evidence_report, outputs=report)
         if os.getenv("NEWS_REVIEW_MODE") == "1" and not os.getenv("SPACE_ID"):

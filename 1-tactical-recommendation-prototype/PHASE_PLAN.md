@@ -1,7 +1,7 @@
 # Finish the Existing Baseline in Six Phases
 
-Status: **Phases 1-4 complete. Phase 5 packaging/public verification and Phase 6 storage cleanup remain incomplete.**
-Updated October 2, 2026. Continue this project, not a replacement implementation.
+Status: **Phases 1-4 complete. Phase 5 public functionality and private backup verified; final runtime publication and physical second-device confirmation remain. Phase 6 has not started.**
+Updated October 5, 2026. Continue this project, not a replacement implementation.
 
 ## Fixed Scope
 
@@ -189,17 +189,23 @@ Public hosting and fresh remote-visitor verification belong to Phase 5.
 
 - [x] Implement P1: runtime/evidence bundle profiles, portable restore, identity-bound bundle gates, model/data license notices and artifact checksums.
 - [x] Keep the runtime bundle below 500 MiB (excluding base models/dependencies), with 300 processed articles and every file needed for selection-lock verification; exclude intermediate checkpoints.
-- [ ] Preserve full corpus, attempts, reviews, predictions, loss histories, manifests, final adapters, resumable checkpoints and recovery history in a private off-PC evidence archive.
+- [x] Preserve the full research evidence in a private off-PC archive. Pinned download SHA and all 661 member hashes verified; representative adapter and resume state restored.
 - [ ] Verify clean restoration without the original working directory, pinned published artifacts, remote checksums, and metrics reproduced from saved predictions/references.
-- [ ] Check ordinary Git history excludes environments, caches and large model/data artifacts; retain artifact retrieval instructions.
-- [ ] Publish Pages and live ZeroGPU only after account authentication, current free-hosting eligibility and gates are verified (P2).
-- [ ] Test real public links as a fresh visitor, including an unseen article without local model downloads; record date and outcome.
-- [ ] Keep static guide/results usable if hosted inference is unavailable; do not advertise an unverified live URL as working.
-- [ ] Finish accurate CV bullets and classify every backlog item as implemented, experimentally evaluated or explicitly outside this release.
+- [x] Keep the original private history private; publish reviewed source in a separate public repository, excluding environments, caches and large artifacts.
+- [x] Publish Pages and live ZeroGPU after authentication and release gates; free hardware accepted, no paid fallback requested.
+- [x] Verify public API and browser visitor flows on October 5: changed interests, fresh English/Arabic generation, edited-input cache identity, visible errors, desktop/mobile layout, local server stopped.
+- [ ] Receive the user's physical second-device confirmation; browser emulation and a separate API client are not a phone/laptop test.
+- [x] Keep static guide/results readable without model downloads or inference availability.
+- [x] Finish measured CV description and classify every backlog item as implemented, experimentally evaluated or explicitly outside this release.
 
 Acceptance: public links, restored artifacts, trained/evaluated pipeline, completed
 human reviews, walkthroughs and independent audit all pass. Authentication or quota
 failures remain visible blockers, not evidence that publishing succeeded.
+Latest evidence: [Phase 5 handoff](docs/PHASE_5_HANDOFF.md),
+[independent audit](docs/PHASE_5_AUDIT.md), and
+[`phase5_verification.json`](data/release/phase5_verification.json).
+Final code audit has no blocking finding; 143 regression tests passed. Do not
+delete the original project environment/caches or training data in this phase.
 
 ## Phase 6: Cleanup and Independence
 

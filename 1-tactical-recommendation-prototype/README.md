@@ -4,13 +4,15 @@
 
 Start with **[START_HERE.md](START_HERE.md)** for the visitor route, code, reproduction and honest release status.
 
+[Portfolio website](https://felixhajj.github.io/multilingual-news-recommender/) | [Live models](https://huggingface.co/spaces/felixhajj/multilingual-news-recommender)
+
 ```text
 article -> Qwen + LoRA -> grounded facts -> learned linker -> exact filter coverage
 article + user interest -> pretrained multilingual E5 -> semantic similarity
 both contributions -> ranked, traceable recommendations
 ```
 
-The main application is `python app.py` at <http://127.0.0.1:8501>. App, CLI and all three notebooks use `src/news_pipeline.py`. The static showcase is historical, not the main product. Existing folder/notebook names are retained to preserve links.
+The main application is `python app.py` (or `python portfolio_app.py`) at <http://127.0.0.1:8502>. App, CLI and all three notebooks use `src/news_pipeline.py`. `legacy_app.py` is explicitly historical, not the main product. Existing notebook/folder names are retained to preserve links.
 
 ## Evidence
 

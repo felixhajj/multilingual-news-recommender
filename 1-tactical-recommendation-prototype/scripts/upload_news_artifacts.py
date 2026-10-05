@@ -28,7 +28,15 @@ def upload(archive, repo, private):
         "private": private, "revision": result.oid, "path": path,
         "archive_sha256": manifest["archive_sha256"], "version": manifest["version"]}
     write_json(ARTIFACTS / "phase5" / f"{manifest['profile']}_upload.json", receipt)
+    if manifest["profile"] == "runtime":
+        import json
+        result = api.upload_file(path_or_fileobj=json.dumps(receipt, indent=2).encode(),
+            path_in_repo="release.json", repo_id=repo, repo_type="dataset",
+            commit_message="Point installers to the pinned runtime archive")
+        receipt["descriptor_revision"] = result.oid
+        write_json(ARTIFACTS / "phase5/runtime_upload.json", receipt)
     print(receipt)
+    return receipt
 
 
 if __name__ == "__main__":

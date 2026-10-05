@@ -20,6 +20,8 @@ Published hyperlinks are partial positive mention/ID labels. Unannotated passage
 
 QLoRA changes added adapter matrices, not Qwen's frozen base or tokenizer. Bounded raw-domain adaptation is an experiment, not a claim of broad geopolitical expertise.
 
+The frozen local extraction/indexing profile uses 4-bit base weights. The ZeroGPU demo loads the same selected adapter over float16 base weights, keeping the execution identity distinct. Hosted English/Arabic synthetic smoke tests verify functionality, not quality parity with the frozen local evaluation. Generic-official person labels and a city incorrectly labeled as a country occurred in those tests; generated output is not reliable ground truth.
+
 ## Evaluation And Failures
 
 Extraction review: five English/five Arabic validation examples and ten English/ten Arabic final test examples, roles fixed before review. Test scores do not select deployment. Surface entity F1 does not measure relationship accuracy, factual truth or every alias. Relationships are unreviewed and not used to establish recommendation constraints.

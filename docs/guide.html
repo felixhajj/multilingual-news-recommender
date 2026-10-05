@@ -4,8 +4,8 @@
 <p><strong>Built with Qwen. Research/evaluation only.</strong> No enterprise affiliation. This is not a current-news feed, fact checker, or production intelligence service.</p>
 <h2>Two-Minute Visitor Route</h2>
 <ol>
-<li>Inspect the labeled, recorded model example without downloading models or waiting for a GPU. Verified public URLs are recorded in <a href="https://github.com/felixhajj/multilingual-news-recommender/blob/main/1-tactical-recommendation-prototype/data/release/deployment.json">deployment.json</a>; an absent URL means public deployment is not verified.</li>
-<li>In the app, change the interest and click <strong>Find relevant articles</strong>. Required filters are separate constraints. The verified local index contains 300 articles (156 Arabic, 144 English) under the selected model versions. Local app and notebook checks passed; public deployment is not verified.</li>
+<li>Open <a href="https://felixhajj.github.io/multilingual-news-recommender/">the portfolio</a> for a labeled, recorded model example, then <a href="https://huggingface.co/spaces/felixhajj/multilingual-news-recommender">the live demo</a>. You do not download models.</li>
+<li>Change the interest and click <strong>Find relevant articles</strong>. Required filters are separate constraints. The release contains 300 historical articles (156 Arabic, 144 English) under the selected model versions.</li>
 <li>Select a current-version result. Inspect <strong>Qwen + learned linker</strong> facts versus your filters, then <strong>E5</strong> similarity and phrase probes. Scores are not confidence percentages.</li>
 <li>Paste an article you may use under <strong>Try your own article</strong>. This runs fresh inference, not a prewritten answer. Models stay on the server. Free GPU quotas/startup delays may interrupt this step; saved results and the guide stay readable.</li>
 </ol>
@@ -76,9 +76,20 @@
 <li>Retrieval quality: all 30 judgments are complete across three ten-article pools. Recall@5 and nDCG@5 are within those pools, not full-corpus scores; only one validation query and two test queries support the comparison.</li>
 <li>Integrity: changed text or models invalidate cached results. Failed inference never substitutes manual tags. Pasted visitor text is not persisted into the public corpus or training data.</li>
 </ul>
-<p>The original 20-mock-example adapter remains an explicitly labeled historical baseline. The selected real-news adapter passed the project's validation gate, but is not a production model. Twenty-three current-version indexing attempts failed extraction/schema checks and remain preserved, alongside the 194 historical failures. The separate live smoke check passed 28 of 30 articles; both failures remain visible. Training alone does not prove quality. Entity co-occurrence does not prove a relationship. Phrase similarities are probes, not internal reasoning. Public Pages and live inference are not verified yet.</p>
+<p>The original 20-mock-example adapter remains an explicitly labeled historical baseline. The selected real-news adapter passed the project's validation gate, but is not a production model. Twenty-three current-version indexing attempts failed extraction/schema checks and remain preserved, alongside the 194 historical failures. The local live smoke check passed 28 of 30 articles; both failures remain visible. Hosted synthetic integration checks are separate from quality evaluation. Training alone does not prove quality. Entity co-occurrence does not prove a relationship. Phrase similarities are probes, not internal reasoning.</p>
+<p>Frozen extraction metrics use the local 4-bit Qwen execution profile. Hosted fresh generation uses the same selected adapter with float16 base weights, with its own execution identity. This is a portable functional demonstration, not a claim of identical numerical outputs or separately measured hosted accuracy. In the synthetic hosted checks, the model misclassified generic officials as people and Beirut as a country; those mistakes remain in the recorded traces.</p>
 <h2>Reproduce Locally</h2>
-<p>Clone the repository and enter <code>1-tactical-recommendation-prototype</code>. You need code, dependencies and prepared artifacts, not only a notebook. Preserve the existing working environment on this PC; use these steps for a new machine.</p>
+<p>The fastest route is the hosted demo. For local reproduction, clone <a href="https://github.com/felixhajj/multilingual-news-recommender">the public repository</a> and enter <code>1-tactical-recommendation-prototype</code>. You need code, dependencies and prepared artifacts, not only a notebook. Preserve the existing working environment on this PC.</p>
+<h3>Saved Evidence Without Models</h3>
+<p>Use Python 3.12 on a new machine. The downloader follows the public release descriptor to an immutable Hub commit and verifies the archive SHA-256. The restore verifies every file; it refuses to overwrite different files.</p>
+<pre><code class="language-bash">python -m venv .evidence-env
+# Windows: .evidence-env/Scripts/python; macOS/Linux: .evidence-env/bin/python
+.evidence-env/Scripts/python -m pip install -r requirements-evidence.txt
+python scripts/download_news_runtime.py --destination downloads
+python scripts/verify_runtime_restore.py downloads/runtime-VERSION.zip --destination restored-release --python .evidence-env/Scripts/python
+</code></pre>
+<p>Replace <code>VERSION</code> with the filename printed by the downloader; use <code>.evidence-env/bin/python</code> on macOS/Linux. This replays frozen extraction and recommendation metrics with a fresh lightweight dependency environment, no model weights and no original corpus. It is not fresh inference. <a href="https://huggingface.co/datasets/felixhajj/multilingual-news-runtime">Runtime artifacts</a> retain the exact revision, archive checksum and member manifest. To reproduce a specific release later, pass its immutable <code>release.json</code> URL using <code>--descriptor-url</code>.</p>
+<h3>Local Inference And Notebooks</h3>
 <p>Windows/NVIDIA, Python 3.12:</p>
 <pre><code class="language-powershell">py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
@@ -94,31 +105,14 @@ python -m pip install -r requirements-portfolio.txt ipykernel
 python -m ipykernel install --user --name news-recommender --display-name "Python (news recommender)"
 </code></pre>
 <p>Mac inference uses non-quantized CPU/MPS and needs adequate RAM. CUDA QLoRA training is not promised on macOS. ZeroGPU uses a separate deployment PyTorch profile.</p>
-<p>Restore the pinned runtime artifact before opening the app. Do not repeat training or review to install the release:</p>
-<pre><code class="language-bash">python scripts/restore_news_bundle.py /path/to/runtime-VERSION.zip --destination .
+<p>Use the restored directory as your working directory before opening the app. Do not repeat training or review to install the release:</p>
+<pre><code class="language-bash">cd restored-release
 python portfolio_app.py
 </code></pre>
-<p>Verify the archive SHA-256 against its published manifest first. Runtime bundles exclude base models and dependencies; fresh local inference downloads the pinned base models. The separate private evidence bundle retains training checkpoints and the corpus. Until remote artifacts are published and verified, installation is not claimed to be fully reproducible from public links.</p>
-<p>The following are historical preparation commands, not release installation steps:</p>
-<pre><code class="language-bash">python scripts/prepare_news.py --target 5000
-python scripts/train_linker.py
-python scripts/evaluate_linker_holdout.py
-python scripts/run_news_experiments.py --examples 100 --steps 24 --label-hours 2
-python scripts/evaluate_news.py predict --hours 2
-python scripts/build_news_release.py --limit 300 --hours 3
-python scripts/prepare_ranking_review.py
-python portfolio_app.py
-</code></pre>
-<p>Open <a href="http://127.0.0.1:8502">http://127.0.0.1:8502</a>. Slow preparation is local, not required of website visitors. Run stages serially. The GPU lock prevents conflicting jobs; <code>output/portfolio/processing_budget.json</code> tracks cumulative bounded processing. Generated artifacts remain outside ordinary Git history.</p>
+<p>Open <a href="http://127.0.0.1:8502">http://127.0.0.1:8502</a>. Runtime bundles exclude base models and dependencies; fresh local inference downloads the pinned base models. The separate private evidence archive retains the full corpus, training checkpoints and recovery history. The hosted Space installs its own Linux dependencies and models, independently of this PC. Windows and macOS local inference remain platform-specific paths, not a claim that every hardware setup was tested.</p>
 <h2>Review And Promotion</h2>
 <p>Set <code>NEWS_REVIEW_MODE=1</code>, then run the local app to review thirty extraction examples and thirty relevance judgments. The tab is disabled on the public Space. A real person must supply attributed judgments; the agent cannot fabricate them.</p>
-<pre><code class="language-bash">python scripts/evaluate_news.py score
-python scripts/evaluate_ranking.py
-python scripts/manage_news_model.py promote --run-id extraction-only-v1
-python scripts/build_news_release.py --limit 300 --hours 3
-python scripts/package_news_release.py
-</code></pre>
-<p>Promotion uses validation only: schema validity &gt;= max(0.8, baseline), strictly improved overall F1, and no language F1 regression. Failed candidates stay unpromoted. Restart after promotion and rebuild the matching index. <code>python scripts/manage_news_model.py rollback</code> restores the prior model configuration.</p>
+<p>The release selection is locked in <code>phase3/selection_lock.json</code>: <code>extraction-only-v3</code>, the supervised linker and the validated ranking configuration. Do not run historical v1 promotion commands against this release. A new experiment must create separate run IDs, a new validation decision and a matching index; it must not overwrite the sealed reviews, reports or lock. Promotion uses validation only: schema validity &gt;= max(0.8, baseline), strictly improved overall F1, and no language F1 regression. Failed candidates stay unpromoted.</p>
 <p>Use <code>scripts/news_cli.py ingest --article article.json</code> to process new news. <code>scripts/approve_news_corrections.py</code> validates corrections and creates a versioned training dataset, rejecting held-out content. Retraining requires an explicit new run prefix and <code>--corrections-version</code>; inference does not teach the model automatically.</p>
 <h2>Deployment</h2>
 <p>GitHub Pages serves the lightweight guide and genuine saved results. Gradio targets free ZeroGPU, subject to account eligibility and quotas: <a href="https://huggingface.co/docs/hub/spaces-zerogpu">official documentation</a>.</p>

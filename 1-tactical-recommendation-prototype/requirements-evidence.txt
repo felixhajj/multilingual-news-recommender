@@ -1,0 +1,8 @@
+# Saved-metric replay only. No model weights, Torch, or training dependencies.
+numpy==2.3.5
+filelock==3.19.1
+scikit-learn==1.7.2
+scipy==1.18.1
+joblib==1.6.0
+threadpoolctl==3.7.0
+cloudpickle==3.1.2

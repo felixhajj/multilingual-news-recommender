@@ -1,32 +1,33 @@
 # Phase 5 Handoff
 
-Status: in progress, not release-complete. Phase 6 cleanup remains prohibited.
+October 5, 2026. Public functionality and private evidence restoration verified.
+Final runtime publication is being closed out; physical second-device confirmation
+is pending. Phase 6 bulk cleanup has not started and is prohibited until Phase 5 passes.
 
 ## Verified Work
 
-- Runtime/evidence profiles, checksum manifests, frozen selection dependencies and compacted-database provenance are implemented.
-- Runtime bundles are approximately 122 MiB compressed, below the 500 MiB bound. Checkpoints and the corpus remain in the separate 1.23 GiB evidence archive.
-- Isolated runtime restoration reproduced the 300 selected records and saved extraction/ranking metrics. This reused Python dependencies; it was not fresh inference or a clean dependency installation.
-- Independent Astra High audit findings were repaired: locked component choices, stale notebook gates, portable snapshot identity, deterministic ZIP bytes, and read-only replay of sealed reports.
-- Existing 128-test regression suite passed. Twelve focused release/activation checks passed after adding two packaging checks. Default notebook runs were refreshed after relevant source changes, using the existing cumulative allocation.
-- Original repository remains private. A separate public repository was created at https://github.com/felixhajj/multilingual-news-recommender . The public HEAD excludes legacy showcase and output artifacts; its history does not inherit the private repository's commits.
-- A dedicated repository-write Hugging Face credential was created with user approval and saved outside the repository. No token was printed or committed.
+- Runtime/evidence profiles, checksum manifests, frozen selection dependencies and compacted-database provenance are implemented. Runtime is approximately 123 MiB, below 500 MiB, excluding base models/dependencies.
+- Clean Python 3.12 evidence dependencies installed from pinned requirements; pip check passed. Isolated offline replay reproduced 300 records, extraction F1 0.3134796, schema validity 0.95, and hybrid/E5 nDCG@5 0.9564838 versus keyword 0.6118293. Protected evidence remained unchanged. This is saved-metric replay, not fresh inference.
+- All three default notebooks passed after relevant shared-app changes. Generation and training remain explicit opt-ins. 143 regression tests passed in 37.859 seconds; Gradio event-loop and oversized-token fixture warnings did not fail tests.
+- Independent Astra High review closed source-level blockers, including form lock/unlock, stale-output clearing, mandatory acceptance assertions, ranged-download recovery and POSIX interpreter symlink preservation. See [audit](PHASE_5_AUDIT.md).
+- Separate public code: [multilingual-news-recommender](https://github.com/felixhajj/multilingual-news-recommender). It does not inherit private history or publish large caches/credentials; the original repository remains private.
+- Credentials remain in local service stores outside Git. No retraining, relabeling, selection changes or budget reset occurred.
 
-## Background Work And Evidence
+## Public Proof And Backups
 
-- Private full archive: `felixhajj/news-recommender-evidence`, pinned revision `48abc8c2be870cce91eb651687c16093515998eb`. Upload finished; download/member verification is handled by `scripts/verify_uploaded_artifacts.py`.
-- Public runtime: `felixhajj/multilingual-news-runtime`. The first uploaded version `29a7ac83e7e4ea24` must be superseded by the final post-audit source version before declaring completion.
-- Space: https://huggingface.co/spaces/felixhajj/multilingual-news-recommender . ZeroGPU was accepted, but the first startup failed because PEFT deserialized adapter tensors directly onto CUDA outside a GPU lease. Explicit CPU deserialization was patched and uploaded; verify the subsequent startup and new-input behavior.
-- Pages: https://felixhajj.github.io/multilingual-news-recommender/ . Free Pages was enabled on the new public repository and its workflow dispatched. Verify the actual deployed page, not only its configuration.
-- Logs/receipts: `output/portfolio/phase5/`. Notebook worker state: `output/portfolio/phase4/notebook_validation_process.json`.
-- One partial Drive backup part exists in the private TacticalReport folder. It is not a complete verified backup and must not authorize cleanup.
+- Private full archive: `felixhajj/news-recommender-evidence`, immutable revision `48abc8c2be870cce91eb651687c16093515998eb`. Archive SHA-256 `4c828ba1f9a064ac9515756da6308cc18f28023172931fc520ed520ef05cc078`; 1,322,660,489 bytes. Remote download and all 661 member hashes passed. All 48 checkpoint members were verified; representative 288-tensor adapter plus optimizer/resume state, reviews and predictions were restored.
+- [Public runtime](https://huggingface.co/datasets/felixhajj/multilingual-news-runtime): final immutable version, revision and checksum in `output/portfolio/phase5/runtime_upload.json`. Public `release.json` directs installers to the pinned archive; superseded candidates remain historical. Restore verifies all members.
+- [Live Space](https://huggingface.co/spaces/felixhajj/multilingual-news-recommender): revision `e6fd21fad53d705a98b6f1151948c3dc45e2fa90`, free ZeroGPU running. Fresh synthetic English/Arabic inputs produced actual model traces, including observed mistakes. Edited input changed cache identity; unknown names remained unresolved. These are functionality checks, not quality evaluation.
+- [Pages](https://felixhajj.github.io/multilingual-news-recommender/): visitor guide, saved evidence and links work without local model downloads. Public ranking changes with interests; result explanation, evidence and visible empty-interest handling passed.
+- Desktop/mobile browser checks passed with local port 8502 stopped; no horizontal overflow at 1280/390 widths. Empty article analysis cleared old output, visibly failed and unlocked controls. A physical second-device check is still pending user confirmation.
+- Hosted generation uses the same selected adapter with float16 base weights; frozen quality metrics use local 4-bit Qwen. Execution identities differ. Do not claim numerical/quality parity. Small evaluation pools, extraction mistakes and weak unseen-alias performance remain visible.
+- Traces, screenshots and receipts: `output/portfolio/phase5/`; public summary: `data/release/phase5_verification.json`. One partial Drive archive part is not a complete backup or cleanup gate.
 
 ## Next Steps
 
-1. Check active workers and their logs before launching replacements. Let the notebook refresh, remote archive verification and hosted build finish.
-2. Generate and upload the final runtime profile after all refreshed notebook gates pass. Download its pinned revision and rerun isolated restoration; retain the historical published versions explicitly as superseded.
-3. Synchronize final deployment links and guide into the public repository. Verify desktop/mobile, changed interests and previously unseen English/Arabic article inference with no local server dependency.
-4. Test a clean dependency installation and record the outcome. Fully verify private archive contents and representative checkpoint/evaluation restoration before any cleanup.
-5. Re-run the narrow independent audit on final publication evidence. Mark Phase 5 complete only when all public and reproducibility checks pass.
+1. Close the final runtime receipt and source/Pages synchronization; this handoff is an archive build-time snapshot, not a substitute for the final publication receipt.
+2. Receive the user's phone/other-laptop confirmation: open the portfolio, enter the live demo and change the interest. Do not count browser emulation as this check.
+3. Only after Phase 5 passes, begin Phase 6's dry-run inventory and controlled bulk cleanup. Duplicate temporary verification copies may be pruned; original research artifacts remain protected.
 
-No retraining, relabeling, selection changes, budget reset or bulk deletion occurred during this phase.
+Budget remains 98,454.808/115,200 seconds (27.35/32 hours), approximately 4.65 hours left.
+Network transfer is not model learning. Free GPU quotas/cold starts remain real constraints.

@@ -21,15 +21,16 @@ This replaces the old open-ended enterprise backlog. Implemented code, evaluated
 | 300 processed release articles | Verified: 300 selected-v3 records, 156 Arabic / 144 English; 23 current and 194 historical failed attempts preserved |
 | Dynamic E5 supporting phrase similarities | Implemented; explicitly not causal explanations |
 | Tokenizer demonstration with unchanged vocabulary | Implemented in A-to-Z notebook |
-| Approved corrections, explicit retraining, rollback | Implemented baseline; reference integrity D2-D3, identity gates M2, matching-index rollback A1 remain |
-| Three explained notebooks and stable stage links | Implemented |
-| Visitor guide and lightweight landing page | Implemented; publishing must be verified |
+| Approved corrections, explicit retraining, rollback | Implemented with frozen-reference integrity, validation selection and matching-index activation gates |
+| Three explained notebooks and stable stage links | Verified default runs; live inference and training remain explicit opt-ins |
+| Visitor guide and lightweight landing page | Published on GitHub Pages; desktop/mobile route verified |
 | Thirty extraction and thirty recommendation human reviews | Complete; original identities, attribution and frozen splits preserved |
 | Human-reviewed F1, Recall@5 and nDCG@5 | Evaluated; isolated runtime reproduces saved metrics. Only 20 extraction test articles and two recommendation test queries |
 | Candidate model promotion | Validation-selected extraction-only-v3; research release, not production-quality claim |
-| Free ZeroGPU deployment | Pending authentication, release gates and hosted verification |
-| Desktop/mobile and failure-state verification | Local checks passed; 28/30 fresh-article smoke outputs valid, both failures preserved; remote checks pending |
-| CV-ready final completion | Not complete until trained artifacts, review, index, walkthrough and public URLs pass |
+| Free ZeroGPU deployment | Running; fresh English/Arabic generation, changed interests and edited-input cache identity verified remotely |
+| Desktop/mobile and failure-state verification | Hosted browser checks passed with local server stopped; failure clears stale output and unlocks controls; physical second-device confirmation pending |
+| Portable artifact restoration | Lightweight clean dependency installation reproduces saved metrics; final pinned publication receipt is in the Phase 5 handoff |
+| CV-ready final completion | Technical verification recorded in the Phase 5 handoff; do not claim physical second-device testing or bulk cleanup before their gates pass |
 
 ## Outside This Release
 
