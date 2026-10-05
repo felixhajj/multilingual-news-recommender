@@ -7,7 +7,13 @@
   "recorded_total_seconds": 580.063,
   "timer_scope": "Selected-run function sessions, including model loading, training, checkpoint handling and saving; excludes imports before the timer starts.",
   "complete_training_duration_available": false,
-  "caveat": "Forced stops can prevent session timing from being persisted. This partial recorded total is not the complete training duration, optimizer-only time, base-model pretraining time or overall project processing time.",
+  "archived_phase3_worker_sessions": 7,
+  "archived_phase3_worker_elapsed_seconds": 8795.049626,
+  "worker_timer_scope": "Sum of finished_at minus started_at for seven archived Phase 3 worker processes. Includes unsuccessful loading attempts and recovery; not successful GPU optimization-only time or all experiment stages.",
+  "worker_history_source": "output/portfolio/phase3/process_history.jsonl",
+  "worker_history_sha256": "88f1b5eda29affdbe1effd5fe4b6070b7f803f322dd45f132efb1ff303979ead",
+  "e5_retrained": false,
+  "caveat": "Model-development jobs spanned hours. Forced stops can prevent selected-run function timing from being persisted. The partial function-session total is not an estimate of all training. Neither timer establishes complete training-only time, base-model pretraining time or total project processing time; do not add them together because their scopes can overlap.",
   "source_manifest": "output/portfolio/runs/extraction-only-v3/manifest.json",
   "source_manifest_sha256": "d35fcc11e0805c5e364acd5bf7036cc20b09462abbba6fddc0c85dc8d7b9cb9a"
 }

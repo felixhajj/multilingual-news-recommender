@@ -16,7 +16,9 @@ The app, scripts and three notebooks share the extraction, linking, embedding an
 
 The selected Qwen adapter used **30 machine-assisted examples and 48 optimizer updates**. The 5,000 collected articles are not 5,000 supervised training examples; 300 articles were analyzed for the release index.
 
-Saved runtime sessions total **580.063 seconds (about 9.7 minutes)**. This timer includes model loading, training, checkpoint handling and saving. It is **only the recorded portion**: forced termination can prevent a session duration from being saved, so the complete training duration and optimizer-only time are unavailable. This is not Qwen or E5's original pretraining time, nor the project's overall processing time. [Inspect the timing summary](https://felixhajj.github.io/multilingual-news-recommender/training-summary.json).
+**The model-development work spanned hours, not just the minutes in the final adapter's timer.** Seven archived Phase 3 worker sessions alone span about **2.4 hours of process runtime**, including unsuccessful loading attempts and recovery. Other stages recorded training and evaluation separately. These worker durations are not a measure of successful GPU optimization time or a complete total for all experiments.
+
+The selected adapter's saved function-session timers total **580.063 seconds (about 9.7 minutes)**, including model loading, training, checkpoint handling and saving. This is **a partial timing record, not an estimate of all training**: forced stops can prevent durations from being saved, and imports occur before this timer starts. The exact complete training-only duration is therefore unavailable. Qwen's original pretraining is not included; E5 was used pretrained and was not retrained. [Inspect the timing evidence and its scope](https://felixhajj.github.io/multilingual-news-recommender/training-summary.json).
 
 More collected articles can improve coverage, but do not automatically fix extraction or ranking quality. Better supervised labels and broader held-out evaluation are needed before making stronger reliability claims.
 
