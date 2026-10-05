@@ -30,6 +30,8 @@ The linker's initial development test was inspected while improving features. A 
 
 Recommendation evaluation covers three ten-article judged pools, not full-corpus recall or general personalization. There is no click tracking, online reinforcement learning or implicit user profiling.
 
+Exploratory visitor queries can rank off-topic articles: a European energy/gas query ranked a US pipeline story first and a Google-slander story second. Some cleaned excerpts still contain residual wikitext. These failures are separate from the frozen evaluation and were not used to retune the selected models or test pools.
+
 Input text is untrusted data. Grounding/schema checks reduce unsupported outputs but cannot eliminate hallucination, bias, ambiguity or prompt injection. Failures and unknowns remain visible. Use public text or text you may process. Visitor input is not added to public indexes or training datasets.
 
 ## Resources

@@ -1,6 +1,6 @@
 {
   "checked_at": "2026-10-05T09:50:11.422874+00:00",
-  "status": "hosted_functional_checks_passed_artifact_finalization_pending",
+  "status": "automated_release_checks_passed_device_and_storage_gates_pending",
   "public_api_checks": {
     "changed_interest_changes_ranking": true,
     "current_300_article_index": true,

@@ -22,6 +22,17 @@ interpreter fix. The project's regression suite provides separately recorded cov
 The review does not certify extraction accuracy, hosted/local numerical parity or
 a physical second-device test. Those claims must follow their actual evidence.
 
+The final receipt/claims audit passed technical verification, including the pinned
+runtime and separate-environment metric replay. It explicitly withheld Phase 5
+completion: physical second-device confirmation and the overall additional-storage
+target remain open. Final archives are 1.35 GiB, but the measured temporary/package
+copies total 8.56 GiB. No cleanup or reclaimed-space claim is justified yet.
+
+Later exploratory ranking/markup failures are documented as limitations without
+changing the frozen metrics, model decisions or tests. Dated operational records
+follow the unchanged archive manifests; they are not retroactively inserted into
+the earlier private research backup.
+
 ## Acceptance Evidence
 
 See [Phase 5 handoff](PHASE_5_HANDOFF.md) and

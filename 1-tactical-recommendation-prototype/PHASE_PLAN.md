@@ -1,6 +1,6 @@
 # Finish the Existing Baseline in Six Phases
 
-Status: **Phases 1-4 complete. Phase 5 public functionality and private backup verified; final runtime publication and physical second-device confirmation remain. Phase 6 has not started.**
+Status: **Phases 1-4 complete. Phase 5 automated release checks passed; physical second-device confirmation and temporary-copy storage housekeeping remain. Phase 6 has not started.**
 Updated October 5, 2026. Continue this project, not a replacement implementation.
 
 ## Fixed Scope
@@ -190,11 +190,12 @@ Public hosting and fresh remote-visitor verification belong to Phase 5.
 - [x] Implement P1: runtime/evidence bundle profiles, portable restore, identity-bound bundle gates, model/data license notices and artifact checksums.
 - [x] Keep the runtime bundle below 500 MiB (excluding base models/dependencies), with 300 processed articles and every file needed for selection-lock verification; exclude intermediate checkpoints.
 - [x] Preserve the full research evidence in a private off-PC archive. Pinned download SHA and all 661 member hashes verified; representative adapter and resume state restored.
-- [ ] Verify clean restoration without the original working directory, pinned published artifacts, remote checksums, and metrics reproduced from saved predictions/references.
+- [x] Verify clean restoration without the original working directory, pinned published artifacts, remote checksums, and metrics reproduced from saved predictions/references. Final runtime `ee684f95d7582e11` downloaded and restored; separate evidence dependencies reproduce frozen metrics offline.
 - [x] Keep the original private history private; publish reviewed source in a separate public repository, excluding environments, caches and large artifacts.
 - [x] Publish Pages and live ZeroGPU after authentication and release gates; free hardware accepted, no paid fallback requested.
 - [x] Verify public API and browser visitor flows on October 5: changed interests, fresh English/Arabic generation, edited-input cache identity, visible errors, desktop/mobile layout, local server stopped.
 - [ ] Receive the user's physical second-device confirmation; browser emulation and a separate API client are not a phone/laptop test.
+- [ ] Prune redundant temporary verification copies to satisfy the additional-storage target. Final useful archives total approximately 1.35 GiB; temporary copies plus packaging candidates currently total 8.56 GiB. Specific pruning approval requested; original research data/caches remain protected.
 - [x] Keep static guide/results readable without model downloads or inference availability.
 - [x] Finish measured CV description and classify every backlog item as implemented, experimentally evaluated or explicitly outside this release.
 
