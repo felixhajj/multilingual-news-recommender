@@ -114,7 +114,10 @@ class QwenExtractionAdapter:
                 device_map={"": device},
                 dtype=torch.float32 if device == "cpu" else torch.float16,
             )
-        self.model = PeftModel.from_pretrained(base_model, adapter_path)
+        # ZeroGPU intercepts model placement during startup, but safetensors must
+        # deserialize on CPU until a GPU lease is available.
+        adapter_load = {"torch_device": "cpu"} if os.getenv("NEWS_ZEROGPU") == "1" else {}
+        self.model = PeftModel.from_pretrained(base_model, adapter_path, **adapter_load)
         self.model.eval()
 
     def extract(self, text, max_new_tokens=320, system_prompt=SYSTEM_PROMPT,
