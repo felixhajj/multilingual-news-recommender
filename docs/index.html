@@ -1,9 +1,49 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A traceable English and Arabic news recommendation research project: QLoRA extraction, learned entity linking, multilingual retrieval."><title>Between Languages / News Recommender</title><link rel="stylesheet" href="site.css"></head>
-<body><nav><a href="index.html" class="brand">BETWEEN LANGUAGES</a><div><a href="guide.html">Visitor guide</a><a href="evidence.json">Evidence</a><a href="https://github.com/felixhajj/multilingual-news-recommender">Code</a></div></nav>
-<main><header class="hero"><p class="eyebrow">Applied machine learning / English + Arabic</p><h1>The story matters.<br>Not the language.</h1><p class="intro">Follow an interest across historical world news. See the facts extracted, the entities connected, and the evidence behind a recommendation.</p><div class="actions"><a class="button" href="guide.html">Take the two-minute tour</a><a id="live" class="secondary" href="#example">See a recorded result</a></div><p id="deployment" class="small">Research/evaluation preview. Live release status is being checked.</p></header>
-<section class="route"><article><span>01 / READ</span><h2>Qwen + LoRA</h2><p>Article text becomes structured facts, with supporting passages and visible mistakes.</p></article><article><span>02 / CONNECT</span><h2>A learned linker</h2><p>Context helps choose an entity ID. Uncertain names remain unresolved.</p></article><article><span>03 / RECOMMEND</span><h2>Multilingual E5</h2><p>Your interest meets the article in a shared meaning space. No manual translation.</p></article></section>
-<section id="example"><div class="section-head"><div><p class="eyebrow">An actual saved model run / not live generation</p><h2>A result you can inspect.</h2></div><span class="pill">No model download</span></div><p id="interest"></p><div id="results"><p>Loading recorded inference evidence...</p></div></section>
-<section class="evidence"><p class="eyebrow">Measured, not claimed</p><h2>Proof includes the limitations.</h2><div id="numbers" class="numbers"></div><p id="status"></p><p>Training loss is not accuracy. High linking precision is not high coverage. A saved result is a record of inference, not a substitute for testing new inputs.</p><a href="evidence.json">Inspect the complete evidence snapshot</a></section>
-<section class="closing"><h2>Follow it from text to recommendation.</h2><p>The app, scripts and three explained notebooks call the same Python pipeline. Start with the A-to-Z walkthrough, then inspect the training and evaluation notebooks.</p><a href="guide.html">Open the technical walkthrough</a></section></main>
-<footer>Built with Qwen. Research/evaluation only under the Qwen Research License. Historical news retains source attribution. No enterprise affiliation. <a href="model-card.html">Data, models and limitations</a></footer><script src="site.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="An English-Arabic news recommender built with fine-tuned Qwen extraction, learned entity linking and multilingual E5 retrieval. Try the models and explore the measured results.">
+  <title>Between Languages / Multilingual News Recommender</title><link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav aria-label="Main navigation"><a href="index.html" class="brand">BETWEEN LANGUAGES</a><div><a href="#how">How it works</a><a href="results.html">Results</a><a href="walkthrough.pdf">Walkthrough PDF</a><a href="https://github.com/felixhajj/multilingual-news-recommender">Code</a></div></nav>
+<main id="main">
+  <header class="hero">
+    <p class="eyebrow">A machine learning project by Felix Hajj</p><h1>Find relevant news.<br>Across English and Arabic.</h1>
+    <p class="intro">Write what you want to follow. Search historical news by meaning, then inspect the facts and entity links behind each result.</p>
+    <div class="actions"><a class="button" href="https://huggingface.co/spaces/felixhajj/multilingual-news-recommender">Try the demo <span aria-hidden="true">&#8599;</span></a><a class="secondary" href="walkthrough.pdf">Read the walkthrough <span aria-hidden="true">&#8594;</span></a></div>
+    <p class="small">No model downloads. Free hosted inference; startup delays and GPU quotas apply.</p>
+    <div class="visitor-route" aria-label="What to try"><span><b>1</b> Change an interest</span><span><b>2</b> Inspect a recommendation</span><span><b>3</b> Paste your own article</span></div>
+  </header>
+  <section id="example" aria-labelledby="example-title">
+    <div class="section-head"><div><p class="eyebrow">See the result</p><h2 id="example-title">An interest becomes a reading list.</h2></div><span class="pill">Recorded model run</span></div>
+    <div class="interest-card"><span class="eyebrow">Written interest</span><p id="interest">Iran nuclear diplomacy and international sanctions</p></div>
+    <div id="results" class="recommendations">
+      <article class="record"><span class="position">01</span><div><h3>Peace activist claims Iran keen to compromise on nuclear issue, Cheney, Rumsfeld allegedly block negotiations</h3><p>A historical article returned for this interest.</p><a href="https://en.wikinews.org/wiki?curid=39534">Read the original article</a><p class="small">Wikinews contributors / CC-BY-2.5</p></div></article>
+      <article class="record"><span class="position">02</span><div><h3>Iran stands defiant on Uranium enrichment</h3><a href="https://en.wikinews.org/wiki?curid=41259">Read the original article</a><p class="small">Wikinews contributors / CC-BY-2.5</p></div></article>
+      <article class="record"><span class="position">03</span><div><h3>Six Power Meetings confirmed on Iran's nuclear crisis</h3><a href="https://en.wikinews.org/wiki?curid=51757">Read the original article</a><p class="small">Wikinews contributors / CC-BY-2.5</p></div></article>
+    </div>
+    <p class="small">These are saved outputs from the selected pipeline. In the demo, changing your interest calculates a fresh ranking over the 300 indexed articles.</p>
+    <a class="text-action" href="https://huggingface.co/spaces/felixhajj/multilingual-news-recommender">Try a different interest <span aria-hidden="true">&#8594;</span></a>
+  </section>
+  <section id="how" aria-labelledby="how-title">
+    <p class="eyebrow">How it works</p><h2 id="how-title">Facts and meaning contribute different signals.</h2><p class="section-intro">The article follows two paths. One identifies who and what it mentions; the other compares its meaning with your written interest.</p>
+    <div class="pipeline" aria-label="Article facts feed optional filter matching. Article text and the written interest independently feed E5. Both signals contribute to ranking.">
+      <div class="path-label"><span class="path-dot facts-dot"></span> Article facts <span class="small">For optional filters</span></div>
+      <div class="fact-path">
+        <article class="stage"><span class="stage-number">01</span><h3>Extract</h3><strong>Qwen + QLoRA</strong><p>Article text becomes structured names, places and other facts.</p><span class="stage-output">Text &#8594; structured facts</span></article>
+        <span class="flow-arrow" aria-hidden="true">&#8594;</span>
+        <article class="stage"><span class="stage-number">02</span><h3>Connect</h3><strong>Learned entity linker</strong><p>Context helps connect a name to an entity ID. Uncertain names stay unresolved.</p><span class="stage-output">Mention &#8594; entity or unresolved</span></article>
+        <span class="flow-arrow" aria-hidden="true">&#8594;</span>
+        <article class="stage filter-stage"><span class="stage-number">+</span><h3>Match filters</h3><strong>Optional requirements</strong><p>Compare article entities with any country, company or other filter you selected.</p><span class="stage-output">Article facts &#8596; your filters</span></article>
+      </div>
+      <div class="meaning-path"><div class="meaning-input"><span class="eyebrow">Article text + written interest</span><p>Both texts go directly to E5.</p></div><span class="flow-arrow" aria-hidden="true">&#8594;</span><article class="stage semantic-stage"><span class="stage-number">03</span><h3>Compare meaning</h3><strong>Multilingual E5</strong><p>English and Arabic map into the same vector space, without manual translation.</p><span class="stage-output">Two texts &#8594; semantic similarity</span></article></div>
+      <div class="ranking-output"><span class="merge-symbol" aria-hidden="true">&#8627;</span><div><strong>A ranked reading list</strong><p>Meaning drives retrieval; optional filters add a separate matching signal. Open a result to inspect both.</p></div></div>
+    </div><p class="small">QLoRA adapts Qwen for extraction. The linker is a trained classifier. E5 uses its pretrained multilingual knowledge.</p>
+  </section>
+  <section class="evidence" aria-labelledby="evidence-title"><p class="eyebrow">Built and tested</p><h2 id="evidence-title">From a real corpus to a working release.</h2><div class="numbers"><div class="number"><strong id="corpus-count">5,000</strong><span>Historical articles collected</span></div><div class="number"><strong id="release-count">300</strong><span>Articles analyzed and indexed</span></div><div class="number"><strong>2</strong><span>Languages: English and Arabic</span></div></div><p>The models were checked with human-reviewed references and comparisons against keyword search. The samples are small, and extraction still misses or misclassifies entities.</p><a class="text-action" href="results.html">Read the measured results and limitations <span aria-hidden="true">&#8594;</span></a></section>
+  <section class="closing" aria-labelledby="explore-title"><p class="eyebrow">Explore the engineering</p><h2 id="explore-title">Follow the project from data to deployment.</h2><p>The six-page walkthrough explains the decisions, training, pipeline and evaluation with diagrams and real examples. The notebooks connect each stage to executable code.</p><div class="explore-grid"><a class="explore-card" href="walkthrough.pdf"><span class="eyebrow">Technical readers</span><strong>Walkthrough PDF <span aria-hidden="true">&#8599;</span></strong><span>Six illustrated pages, from collection to results.</span></a><a class="explore-card" href="guide.html"><span class="eyebrow">Run and reproduce</span><strong>Notebooks and setup <span aria-hidden="true">&#8594;</span></strong><span>Code links, saved evidence and reproduction commands.</span></a></div></section>
+</main>
+<footer><p>A research project using historical news. Model output can contain mistakes. Qwen's research-only license applies; source articles retain attribution. <a href="model-card.html">Data, models and limitations</a></p><p>Felix Hajj / <a href="https://github.com/felixhajj/multilingual-news-recommender">Source code</a> / <a href="results.html">Evaluation results</a></p></footer><script src="site.js"></script>
+</body></html>

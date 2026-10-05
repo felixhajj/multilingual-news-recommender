@@ -1,0 +1,103 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>News Recommender / Guide</title><link rel="stylesheet" href="site.css"></head><body><nav aria-label="Main navigation"><a class="brand" href="index.html">BETWEEN LANGUAGES</a><div><a href="results.html">Results</a><a href="walkthrough.pdf">Walkthrough PDF</a><a href="https://huggingface.co/spaces/felixhajj/multilingual-news-recommender">Try the demo</a></div></nav><main class="document"><h1>Results and Limitations</h1>
+<p>This project combines Qwen extraction, a supervised entity linker and multilingual E5 retrieval in a working English-Arabic news recommender. These measurements describe the selected research release.</p>
+<p><a href="https://huggingface.co/spaces/felixhajj/multilingual-news-recommender">Try the demo</a> | <a href="walkthrough.pdf">Read the six-page walkthrough</a> | <a href="https://github.com/felixhajj/multilingual-news-recommender">Explore the code</a></p>
+<h2>What Was Built</h2>
+<p>The corpus contains <strong>5,000 historical Wikinews articles</strong>: 3,539 English and 1,461 Arabic. The indexed release contains <strong>300 successfully analyzed articles</strong>: 144 English and 156 Arabic. Collection size and indexed release size describe different stages of the work.</p>
+<p>The selected QLoRA adapter trained for <strong>48 optimizer steps on 30 machine-assisted examples</strong>. Human review supplied 30 extraction references and 30 recommendation judgments for evaluation. Training labels and human-reviewed references have separate provenance.</p>
+<p>The app, scripts and three notebooks share the extraction, linking, embedding and ranking implementation. Recorded checks include 143 passing regression tests, execution of all three notebooks, fresh hosted English/Arabic article analysis and changed rankings for changed interests.</p>
+<h2>Extraction</h2>
+<p>Qwen generates structured article facts. JSON parsing checks whether the output is readable JSON; schema validity checks its expected structure; entity F1 measures how well extracted names match the reference names.</p>
+<table>
+<thead>
+<tr>
+<th>Final test: 20 human-reviewed articles</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JSON parsing validity</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>Schema validity</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>Entity precision</td>
+<td>49.0%</td>
+</tr>
+<tr>
+<td>Entity recall</td>
+<td>23.0%</td>
+</tr>
+<tr>
+<td>Entity micro-F1</td>
+<td>0.313</td>
+</tr>
+</tbody>
+</table>
+<p>The sample contains ten English and ten Arabic articles, held out from our training. It may overlap with pretrained model data. F1 scores exact normalized entity surfaces; topics and relationships are checked against the schema but are not human-scored here.</p>
+<p>Validation selected extraction-only training over base Qwen and domain-adaptation-plus-extraction. On ten validation articles, entity F1 rose from 0.289 for base Qwen to 0.372 for the selected adapter, while schema validity rose from 40% to 90%. These validation results are distinct from the final test above.</p>
+<h2>Entity Linking</h2>
+<p>A trained classifier chooses among E5-retrieved candidate entities. It can leave a name unresolved when evidence is weak.</p>
+<table>
+<thead>
+<tr>
+<th>Article-disjoint holdout: 200 mentions</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Correct accepted links</td>
+<td>95.9% precision</td>
+</tr>
+<tr>
+<td>Mentions receiving an accepted link</td>
+<td>36.5% coverage</td>
+</tr>
+<tr>
+<td>Accepted links</td>
+<td>73 of 200</td>
+</tr>
+</tbody>
+</table>
+<p>High precision applies only to the accepted subset. This previously reported article-disjoint holdout was reused for the release, rather than collected afresh. The catalogue is a training-derived Wikidata subset, and many names remain unresolved. Performance on unseen or ambiguous aliases is weak. This is a limited contextual linker.</p>
+<h2>Recommendation</h2>
+<p>Keyword search, E5 and hybrid ranking were compared on the same judged pools. Keyword and E5 rank all ten candidates per pool; hybrid ranks only eight and nine, because extraction failures exclude some candidates. nDCG@5 rewards placing more relevant items near the top; Recall@5 measures how many relevant items appear in the first five results.</p>
+<table>
+<thead>
+<tr>
+<th>Final test: two queries, ten judged articles per query</th>
+<th>nDCG@5</th>
+<th>Recall@5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keyword search</td>
+<td>0.612</td>
+<td>0.500</td>
+</tr>
+<tr>
+<td>Multilingual E5</td>
+<td>0.956</td>
+<td>0.500</td>
+</tr>
+<tr>
+<td>Hybrid: E5 plus optional filter signal</td>
+<td>0.956</td>
+<td>0.500</td>
+</tr>
+</tbody>
+</table>
+<p>These are small, fixed-pool results. Hybrid and E5 have equal reported averages; hybrid has not demonstrated an improvement over E5 on this test. The model choice was fixed using validation before final-test reporting.</p>
+<h2>Where It Still Fails</h2>
+<p>The local new-article smoke check produced valid outputs for 28 of 30 articles. Both malformed outputs were retained. Hosted examples included generic officials classified as people and Beirut classified as a country. An exploratory European energy/gas interest ranked a US pipeline article first and an unrelated Google-slander story second. Some excerpts retain wikitext.</p>
+<p>Phrase similarities are useful probes, rather than a definitive explanation of the model's internal reasoning. Scores indicate relative relevance. Historical source articles and their claims are not independently fact-checked by this application.</p>
+<p>Frozen extraction metrics use local 4-bit Qwen. Hosted inference uses the same adapter with float16 base weights; hosted quality parity has not been measured. Free GPU quotas and startup delays can prevent fresh analysis, while the website and recorded examples remain readable.</p>
+<h2>Inspect or Reproduce</h2>
+<p><a href="guide.html">The technical guide</a> links the three notebooks and commands for replaying saved metrics in a clean environment. The <a href="evidence.json">machine-readable evidence</a> records model identities and source hashes. <a href="model-card.html">Data and model details</a> cover provenance, execution profiles and licensing.</p>
+<p>Wikinews text retains contributor attribution under CC-BY-2.5. Qwen2.5-3B-Instruct uses the Qwen Research License; this release is for research and evaluation.</p>
+</main></body></html>

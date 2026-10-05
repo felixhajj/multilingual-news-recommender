@@ -4,7 +4,7 @@ English/Arabic news recommendation with Qwen + QLoRA extraction, a learned entit
 
 **[Start here: visitor guide and reproduction](1-tactical-recommendation-prototype/START_HERE.md)**
 
-[Portfolio website](https://felixhajj.github.io/multilingual-news-recommender/) | [Live models](https://huggingface.co/spaces/felixhajj/multilingual-news-recommender)
+[Portfolio website](https://felixhajj.github.io/multilingual-news-recommender/) | [Live models](https://huggingface.co/spaces/felixhajj/multilingual-news-recommender) | [Six-page technical walkthrough](https://felixhajj.github.io/multilingual-news-recommender/walkthrough.pdf) | [Measured results](https://felixhajj.github.io/multilingual-news-recommender/results.html)
 
 ## Projects
 

@@ -1,5 +1,7 @@
 # Start Here
 
+For an illustrated introduction, read the [six-page technical walkthrough](walkthrough.pdf). The [results page](results.html) explains the measured quality and limitations. This guide contains notebook links and reproduction instructions.
+
 ## The Project
 
 Write an interest such as "Iran nuclear diplomacy and sanctions." Rank historical English and Arabic news, or paste a new article to inspect generated facts, entity links and relevance.

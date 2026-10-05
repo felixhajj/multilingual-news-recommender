@@ -1,0 +1,9 @@
+{
+  "pages": 6,
+  "output_sha256": "9a08f7673a751444bab452a9745aeaea7e9cd38df9c7b1d5e7ebd114be6268dc",
+  "evidence_sha256": "ade29ab4b015cd9d2a8974dabadb4be9071565c8eb59695bca384cedad6a9be7",
+  "training_steps": 48,
+  "loss_points": 48,
+  "recorded_example_cache_key": "236fea0c54970ce943609f8587fc76be907f6df691e227fd6020307c213d106a",
+  "example_entity_id": "Q207"
+}
