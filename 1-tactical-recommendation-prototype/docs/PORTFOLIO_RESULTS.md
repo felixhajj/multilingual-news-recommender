@@ -1,6 +1,6 @@
 # Results and Limitations
 
-This project combines Qwen extraction, a supervised entity linker and multilingual E5 retrieval in a working English-Arabic news recommender. These measurements describe the selected research release.
+This project combines Qwen extraction, a supervised entity linker and multilingual E5 retrieval in a working English-Arabic news recommender. It is an **experimental portfolio prototype, not a production-ready or broadly validated recommender**. The limitations below reflect measured quality and small training/evaluation samples, not training duration alone.
 
 [Try the demo](https://huggingface.co/spaces/felixhajj/multilingual-news-recommender) | [Read the six-page walkthrough](walkthrough.pdf) | [Explore the code](https://github.com/felixhajj/multilingual-news-recommender)
 
@@ -11,6 +11,14 @@ The corpus contains **5,000 historical Wikinews articles**: 3,539 English and 1,
 The selected QLoRA adapter trained for **48 optimizer steps on 30 machine-assisted examples**. Human review supplied 30 extraction references and 30 recommendation judgments for evaluation. Training labels and human-reviewed references have separate provenance.
 
 The app, scripts and three notebooks share the extraction, linking, embedding and ranking implementation. Recorded checks include 143 passing regression tests, execution of all three notebooks, fresh hosted English/Arabic article analysis and changed rankings for changed interests.
+
+<h2 id="training-scope-and-time">Training Scope and Time</h2>
+
+The selected Qwen adapter used **30 machine-assisted examples and 48 optimizer updates**. The 5,000 collected articles are not 5,000 supervised training examples; 300 articles were analyzed for the release index.
+
+Saved runtime sessions total **580.063 seconds (about 9.7 minutes)**. This timer includes model loading, training, checkpoint handling and saving. It is **only the recorded portion**: forced termination can prevent a session duration from being saved, so the complete training duration and optimizer-only time are unavailable. This is not Qwen or E5's original pretraining time, nor the project's overall processing time. [Inspect the timing summary](https://felixhajj.github.io/multilingual-news-recommender/training-summary.json).
+
+More collected articles can improve coverage, but do not automatically fix extraction or ranking quality. Better supervised labels and broader held-out evaluation are needed before making stronger reliability claims.
 
 ## Extraction
 
@@ -56,7 +64,7 @@ These are small, fixed-pool results. Hybrid and E5 have equal reported averages;
 
 The local new-article smoke check produced valid outputs for 28 of 30 articles. Both malformed outputs were retained. Hosted examples included generic officials classified as people and Beirut classified as a country. An exploratory European energy/gas interest ranked a US pipeline article first and an unrelated Google-slander story second. Some excerpts retain wikitext.
 
-Phrase similarities are useful probes, rather than a definitive explanation of the model's internal reasoning. Scores indicate relative relevance. Historical source articles and their claims are not independently fact-checked by this application.
+E5 scores the written interest against natural article text, not by checking individual matching words. Phrase similarities are illustrative probes, rather than a definitive explanation of the model's internal reasoning. Scores indicate relative relevance. Historical source articles and their claims are not independently fact-checked by this application.
 
 Frozen extraction metrics use local 4-bit Qwen. Hosted inference uses the same adapter with float16 base weights; hosted quality parity has not been measured. Free GPU quotas and startup delays can prevent fresh analysis, while the website and recorded examples remain readable.
 

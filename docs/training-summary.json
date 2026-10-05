@@ -1,0 +1,13 @@
+{
+  "run_id": "extraction-only-v3",
+  "training_examples": 30,
+  "label_source": "machine-assisted, not human gold",
+  "optimizer_updates": 48,
+  "recorded_session_seconds": [1.531, 6.375, 191.469, 380.688],
+  "recorded_total_seconds": 580.063,
+  "timer_scope": "Selected-run function sessions, including model loading, training, checkpoint handling and saving; excludes imports before the timer starts.",
+  "complete_training_duration_available": false,
+  "caveat": "Forced stops can prevent session timing from being persisted. This partial recorded total is not the complete training duration, optimizer-only time, base-model pretraining time or overall project processing time.",
+  "source_manifest": "output/portfolio/runs/extraction-only-v3/manifest.json",
+  "source_manifest_sha256": "d35fcc11e0805c5e364acd5bf7036cc20b09462abbba6fddc0c85dc8d7b9cb9a"
+}
