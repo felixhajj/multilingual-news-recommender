@@ -1,0 +1,11 @@
+{
+  "baseline": {
+    "micro_f1": 0.1538,
+    "json_validity": 0.4
+  },
+  "trained": {
+    "micro_f1": 0.5,
+    "json_validity": 1.0
+  },
+  "adapter_path": "D:\\1-Projects\\2-HuggingFace\\2-Final_Mock_Project\\tactical-recommendation-prototype\\output\\entity_extraction_qwen25_3b\\adapter"
+}

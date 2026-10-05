@@ -1,0 +1,304 @@
+﻿[
+    {
+        "article_id":  "article_001",
+        "title":  "Saudi Arabia and France discuss air defense cooperation",
+        "date":  "2026-06-20",
+        "product_type":  "Intelligence Note",
+        "tags":  {
+                     "countries":  [
+                                       "Saudi Arabia",
+                                       "France"
+                                   ],
+                     "companies":  [
+                                       "MBDA"
+                                   ],
+                     "organizations":  [
+                                           "RSADF",
+                                           "Saudi Ministry of Defense"
+                                       ],
+                     "profiles":  [
+                                      "Prince Khaled"
+                                  ],
+                     "systems":  [
+                                     "Air defense systems",
+                                     "Radars"
+                                 ],
+                     "topics":  [
+                                    "Saudi-French defense relations"
+                                ]
+                 }
+    },
+    {
+        "article_id":  "article_002",
+        "title":  "Lockheed Martin seeks expanded air defense role in Saudi Arabia",
+        "date":  "2026-06-18",
+        "product_type":  "Intelligence Note",
+        "tags":  {
+                     "countries":  [
+                                       "Saudi Arabia",
+                                       "USA"
+                                   ],
+                     "companies":  [
+                                       "Lockheed Martin",
+                                       "Raytheon"
+                                   ],
+                     "organizations":  [
+                                           "RSADF",
+                                           "Saudi Ministry of Defense"
+                                       ],
+                     "profiles":  [
+                                      "Crown Prince Mohammad"
+                                  ],
+                     "systems":  [
+                                     "Air defense systems",
+                                     "Radars"
+                                 ],
+                     "topics":  [
+                                    "Saudi-US defense relations"
+                                ]
+                 }
+    },
+    {
+        "article_id":  "article_003",
+        "title":  "OPEC producers weigh oil production policy after Red Sea disruption",
+        "date":  "2026-06-22",
+        "product_type":  "Weekly Brief",
+        "tags":  {
+                     "countries":  [
+                                       "Saudi Arabia",
+                                       "United Arab Emirates"
+                                   ],
+                     "companies":  [
+                                       "Aramco",
+                                       "TotalEnergies"
+                                   ],
+                     "organizations":  [
+                                           "OPEC"
+                                       ],
+                     "profiles":  [
+
+                                  ],
+                     "systems":  [
+                                     "LNG",
+                                     "Gas"
+                                 ],
+                     "topics":  [
+                                    "Oil production",
+                                    "Strait of Hormuz"
+                                ]
+                 }
+    },
+    {
+        "article_id":  "article_004",
+        "title":  "Qatar and Turkey expand security cooperation",
+        "date":  "2026-06-15",
+        "product_type":  "Intelligence Note",
+        "tags":  {
+                     "countries":  [
+                                       "Qatar",
+                                       "Turkey"
+                                   ],
+                     "companies":  [
+
+                                   ],
+                     "organizations":  [
+                                           "Qatar Ministry of Defense"
+                                       ],
+                     "profiles":  [
+                                      "Emir Tamim",
+                                      "President Erdogan"
+                                  ],
+                     "systems":  [
+                                     "Bayraktar drone"
+                                 ],
+                     "topics":  [
+                                    "Saudi-Turkish relations",
+                                    "Qatari-US relations"
+                                ]
+                 }
+    },
+    {
+        "article_id":  "article_005",
+        "title":  "Leadership reshuffle around GAMI and Saudi defense procurement",
+        "date":  "2026-06-25",
+        "product_type":  "Intelligence Note",
+        "tags":  {
+                     "countries":  [
+                                       "Saudi Arabia"
+                                   ],
+                     "companies":  [
+                                       "SAMI"
+                                   ],
+                     "organizations":  [
+                                           "Saudi Ministry of Defense"
+                                       ],
+                     "profiles":  [
+                                      "Crown Prince Mohammad",
+                                      "Prince Khaled"
+                                  ],
+                     "systems":  [
+
+                                 ],
+                     "topics":  [
+                                    "Saudi transition of power",
+                                    "Saudi-US defense relations"
+                                ]
+                 }
+    },
+    {
+        "article_id":  "article_006",
+        "title":  "UAE naval procurement signals closer French cooperation",
+        "date":  "2026-06-12",
+        "product_type":  "Intelligence Note",
+        "tags":  {
+                     "countries":  [
+                                       "United Arab Emirates",
+                                       "France"
+                                   ],
+                     "companies":  [
+                                       "Naval Group"
+                                   ],
+                     "organizations":  [
+                                           "UAE Navy"
+                                       ],
+                     "profiles":  [
+
+                                  ],
+                     "systems":  [
+                                     "Submarines"
+                                 ],
+                     "topics":  [
+                                    "UAE-Israeli defense relations",
+                                    "UAE-US relations"
+                                ]
+                 }
+    },
+    {
+        "article_id":  "article_007",
+        "title":  "Pentagon reassesses air defense systems after regional escalation",
+        "date":  "2026-06-21",
+        "product_type":  "Weekly Brief",
+        "tags":  {
+                     "countries":  [
+                                       "USA"
+                                   ],
+                     "companies":  [
+                                       "Raytheon",
+                                       "Lockheed Martin"
+                                   ],
+                     "organizations":  [
+                                           "Pentagon",
+                                           "RSADF"
+                                       ],
+                     "profiles":  [
+                                      "Lloyd Austin",
+                                      "President Biden"
+                                  ],
+                     "systems":  [
+                                     "Air defense systems",
+                                     "Counter-drone systems"
+                                 ],
+                     "topics":  [
+                                    "Saudi-US defense relations",
+                                    "Iran-US situation"
+                                ]
+                 }
+    },
+    {
+        "article_id":  "article_008",
+        "title":  "Iran-Gulf maritime incidents raise Strait of Hormuz concerns",
+        "date":  "2026-06-23",
+        "product_type":  "Intelligence Note",
+        "tags":  {
+                     "countries":  [
+                                       "Iran",
+                                       "Saudi Arabia",
+                                       "United Arab Emirates"
+                                   ],
+                     "companies":  [
+
+                                   ],
+                     "organizations":  [
+                                           "IRGC"
+                                       ],
+                     "profiles":  [
+                                      "Khamenei"
+                                  ],
+                     "systems":  [
+                                     "Gas",
+                                     "LNG"
+                                 ],
+                     "topics":  [
+                                    "Strait of Hormuz",
+                                    "Iran-US situation"
+                                ]
+                 }
+    },
+    {
+        "article_id":  "article_009",
+        "title":  "Boeing pitches F-35 support package to Gulf air forces",
+        "date":  "2026-06-10",
+        "product_type":  "Intelligence Note",
+        "tags":  {
+                     "countries":  [
+                                       "Saudi Arabia",
+                                       "USA",
+                                       "United Arab Emirates"
+                                   ],
+                     "companies":  [
+                                       "Boeing"
+                                   ],
+                     "organizations":  [
+                                           "RSAF",
+                                           "UAEAF"
+                                       ],
+                     "profiles":  [
+
+                                  ],
+                     "systems":  [
+                                     "F-35",
+                                     "Rafale"
+                                 ],
+                     "topics":  [
+                                    "Saudi-US defense relations",
+                                    "UAE-US relations"
+                                ]
+                 }
+    },
+    {
+        "article_id":  "article_010",
+        "title":  "Saudi air defense systems: from talks to procurement signals",
+        "date":  "2026-06-26",
+        "product_type":  "In-Depth Report",
+        "tags":  {
+                     "countries":  [
+                                       "Saudi Arabia",
+                                       "France",
+                                       "USA"
+                                   ],
+                     "companies":  [
+                                       "Lockheed Martin",
+                                       "Raytheon",
+                                       "MBDA"
+                                   ],
+                     "organizations":  [
+                                           "RSADF",
+                                           "Saudi Ministry of Defense"
+                                       ],
+                     "profiles":  [
+                                      "Crown Prince Mohammad",
+                                      "Prince Khaled"
+                                  ],
+                     "systems":  [
+                                     "Air defense systems",
+                                     "Counter-drone systems",
+                                     "Radars"
+                                 ],
+                     "topics":  [
+                                    "Saudi-US defense relations",
+                                    "Saudi-French defense relations",
+                                    "Saudi-South Korean defense relations"
+                                ]
+                 }
+    }
+]

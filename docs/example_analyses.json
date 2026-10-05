@@ -1,0 +1,698 @@
+[
+  {
+    "status": "ready",
+    "article": {
+      "source_url": "https://ar.wikinews.org/wiki?curid=11239",
+      "source_id": "wikinews_mewsli9",
+      "author": "Wikinews contributors",
+      "license_id": "CC-BY-2.5",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "date": "2018-07-22",
+      "date_kind": "revision_date_publication_unknown",
+      "language": "ar",
+      "source_revision": "116090",
+      "title": "الاحتجاجات مستمرة في البحرين منذ 21 يوما",
+      "body": "شهدت العاصمة البحرينية المنامة اليوم الأحد تظاهر آلاف المحتجين امام قصر القضيبية حيث تعقد الحكومة البحرينية اجتماعاتها, مطالبين بإجراء إصلاحات سياسية وإسقاط الحكومة.\nوذكرت وكالة الأنباء الفرنسية (ا ف ب) أن\" آلاف الأشخاص تظاهروا في العاصمة البحرينية المنامة للمطالبة بإسقاط الحكومة وتغيير النظام, فضلا عن إلغاء دستور 2002 من أجل البحرين\".\nوتجمهر الآلاف من المحتجين أمام قصر القضيبية في العاصمة المنامة, مرددين هتافات وشعارات مناهضة للملك حمد بن عيسى ال خليفة لا سيما \"يسقط حمد .\nولاتزال المظاهرات الاحتجاجية مستمرة في دوار اللؤلؤة وسط العاصمة البحرينية, وهو دوار بات يشكل رمزا للحركة المطالبة بالتغيير في المملكة.\nوتأتي المظاهرات بعد يومين من مواجهات واشتباكات عنيفة طائفية في بلدة وسط البحرين, مما أدى إلى إصابة عدد من الأشخاص بجروح.\nودخلت الاحتجاجات التي تشهدها مملكة البحرين, والتي اسفرت عن سقوط مدنيين, يومها 21 الأحد, حيث يطالب المحتجون بتشكيل حكومة جديدة وباصلاحات سياسية.\nوكانت المعارضة البحرينية قدمت في شهر شباط الماضي مجموعة شروط ومطالب إلى ولي عهد البحرين الأمير سلمان بن حمد آل خليفة, والتي تتضمن إطلاق سراح المعتقلين السياسيين واستقالة الحكومة وإجراء محادثات بشأن وضع دستور جديد.\nيشار إلى أن المظاهرات التي شهدتها البحرين تأتي في وقت لا تزال تشهد عدد من الدول العربية مثل ليبيا والأردن واليمن والجزائر والمغرب والعراق مظاهرات احتجاجا على الأوضاع السياسية والاجتماعية, كما أدت المظاهرات الاحتجاجية في تونس ومصر إلى الإطاحة بنظام الرئيسين زين العابدين بن علي وحسني مبارك.",
+      "article_id": "ar-11239"
+    },
+    "cache_key": "a92444cad38668782cb5fa156318372e5f400b65fdf6af7efac849a09b4979fb",
+    "cache_hit": false,
+    "pipeline_identity": "7bb217afa48f24dc5134c8d30d990c008fe25fd53e710d1cf9e3df594149d14c",
+    "model": {
+      "base": "Qwen/Qwen2.5-3B-Instruct",
+      "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "adapter_sha256": "82739bdebf112e5eb6f5bf8e31f4e2845a04d5a11c69624293b076eeda844a51",
+      "adapter_config_sha256": "2353cfd25010b497654882dac324ebc6ab2dd18a6bdf3ee74cab63733868644f",
+      "tokenizer_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "tokenizer_files": {
+        "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+        "special_tokens_map.json": "890efa1686cf49870d5018b948316d11c6d9ce121a942803eeb4224dcc7db3f0",
+        "tokenizer.json": "9c5ae00e602b8860cbd784ba82a8aa14e8feecec692e7076590d014d7b7fdafa",
+        "tokenizer_config.json": "0d2be11c79ca0320ee8f81abe61f98f4b043df0cd2784109100fb5b21dc78d0b",
+        "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      },
+      "prompt_sha256": "a5d8e6f21028065254d4d97961a5ed5626224f321080a938d39baa75ec2ff4d3",
+      "schema_version": "extraction-v3-locations",
+      "max_new_tokens": 768,
+      "chunk_tokens": 512,
+      "chunk_stride": 480,
+      "adapter_enabled": true,
+      "execution": {
+        "quantization": "nf4-double",
+        "dtype": "float16"
+      },
+      "run_id": "extraction-only-v3"
+    },
+    "schema_version": "extraction-v3-locations",
+    "generated_at": "2026-10-01T11:50:20.278711+00:00",
+    "raw_model_outputs": [
+      "{\"countries\": [\"البحرين\"], \"locations\": [\"منامة\", \"دوار اللؤلؤة\", \"وسط البحرين\"], \"companies\": [], \"organizations\": [], \"profiles\": [], \"systems\": [], \"topics\": [], \"relationships\": [{\"subject\": \"الحكومة البحرينية\", \"relation\": \"تعقد الاجتماعات\", \"object\": \"قصر القضيبية\"}, {\"subject\": \"المحتجين\", \"relation\": \"المطالبة بإسقاط الحكومة\", \"object\": \"الحكومة البحرينية\"}]}",
+      "{\"countries\": [\"تونس\", \"مصر\"], \"locations\": [], \"companies\": [], \"organizations\": [], \"profiles\": [], \"systems\": [], \"topics\": [], \"relationships\": []}"
+    ],
+    "extraction": {
+      "countries": [
+        "البحرين",
+        "تونس",
+        "مصر"
+      ],
+      "locations": [
+        "منامة",
+        "دوار اللؤلؤة",
+        "وسط البحرين"
+      ],
+      "companies": [],
+      "organizations": [],
+      "profiles": [],
+      "systems": [],
+      "topics": [],
+      "relationships": [
+        {
+          "subject": "الحكومة البحرينية",
+          "relation": "تعقد الاجتماعات",
+          "object": "قصر القضيبية"
+        },
+        {
+          "subject": "المحتجين",
+          "relation": "المطالبة بإسقاط الحكومة",
+          "object": "الحكومة البحرينية"
+        }
+      ]
+    },
+    "tags": {
+      "countries": [
+        "البحرين",
+        "تونس",
+        "Egypt"
+      ],
+      "locations": [
+        "منامة",
+        "دوار اللؤلؤة",
+        "وسط البحرين"
+      ],
+      "companies": [],
+      "organizations": [],
+      "profiles": [],
+      "systems": [],
+      "topics": []
+    },
+    "entity_links": [
+      {
+        "mention": "البحرين",
+        "entity_id": "Q398",
+        "canonical_name": "البحرين",
+        "status": "linked",
+        "link_score": 0.9942,
+        "unrounded_link_score": 0.9941524039516081,
+        "score_note": "Learned candidate score, not a calibrated probability",
+        "linker_version": "9f31917ad1c4d0358f461f8b2e86f6a0ddb9e9dae515062c42efa4cbf4a21d03",
+        "candidates": [
+          {
+            "entity_id": "Q398",
+            "name": "البحرين",
+            "score": 0.9942
+          },
+          {
+            "entity_id": "Q576856",
+            "name": "البحيرة",
+            "score": 0.0007
+          },
+          {
+            "entity_id": "Q12184445",
+            "name": "البريقة",
+            "score": 0.0006
+          }
+        ],
+        "category": "countries"
+      },
+      {
+        "mention": "تونس",
+        "entity_id": "Q948",
+        "canonical_name": "تونس",
+        "status": "linked",
+        "link_score": 0.9979,
+        "unrounded_link_score": 0.9978830260763126,
+        "score_note": "Learned candidate score, not a calibrated probability",
+        "linker_version": "9f31917ad1c4d0358f461f8b2e86f6a0ddb9e9dae515062c42efa4cbf4a21d03",
+        "candidates": [
+          {
+            "entity_id": "Q948",
+            "name": "تونس",
+            "score": 0.9979
+          },
+          {
+            "entity_id": "Q847",
+            "name": "التنس",
+            "score": 0.0
+          },
+          {
+            "entity_id": "Q506680",
+            "name": "متوطناً",
+            "score": 0.0
+          }
+        ],
+        "category": "countries"
+      },
+      {
+        "mention": "مصر",
+        "entity_id": "Q79",
+        "canonical_name": "Egypt",
+        "status": "linked",
+        "link_score": 0.9903,
+        "unrounded_link_score": 0.9903272138450576,
+        "score_note": "Learned candidate score, not a calibrated probability",
+        "linker_version": "9f31917ad1c4d0358f461f8b2e86f6a0ddb9e9dae515062c42efa4cbf4a21d03",
+        "candidates": [
+          {
+            "entity_id": "Q79",
+            "name": "Egypt",
+            "score": 0.9903
+          },
+          {
+            "entity_id": "Q131301",
+            "name": "حمص",
+            "score": 0.0001
+          },
+          {
+            "entity_id": "Q131323",
+            "name": "مصراتة",
+            "score": 0.0
+          }
+        ],
+        "category": "countries"
+      },
+      {
+        "mention": "منامة",
+        "entity_id": null,
+        "canonical_name": null,
+        "status": "unresolved",
+        "link_score": 0.0001,
+        "unrounded_link_score": 0.00010881649401709035,
+        "score_note": "Learned candidate score, not a calibrated probability",
+        "linker_version": "9f31917ad1c4d0358f461f8b2e86f6a0ddb9e9dae515062c42efa4cbf4a21d03",
+        "candidates": [
+          {
+            "entity_id": "Q173545",
+            "name": "حماة",
+            "score": 0.0001
+          },
+          {
+            "entity_id": "Q12201989",
+            "name": "تاغمة",
+            "score": 0.0
+          },
+          {
+            "entity_id": "Q1650043",
+            "name": "مرمرة",
+            "score": 0.0
+          }
+        ],
+        "category": "locations"
+      },
+      {
+        "mention": "دوار اللؤلؤة",
+        "entity_id": null,
+        "canonical_name": null,
+        "status": "unresolved",
+        "link_score": 0.0,
+        "unrounded_link_score": 1.0318333409428567e-05,
+        "score_note": "Learned candidate score, not a calibrated probability",
+        "linker_version": "9f31917ad1c4d0358f461f8b2e86f6a0ddb9e9dae515062c42efa4cbf4a21d03",
+        "candidates": [
+          {
+            "entity_id": "Q5848639",
+            "name": "دار السلام",
+            "score": 0.0
+          },
+          {
+            "entity_id": "Q2607694",
+            "name": "وزارة الداخلية",
+            "score": 0.0
+          },
+          {
+            "entity_id": "Q55018",
+            "name": "دار الأوبرا الملكية",
+            "score": 0.0
+          }
+        ],
+        "category": "locations"
+      },
+      {
+        "mention": "وسط البحرين",
+        "entity_id": null,
+        "canonical_name": null,
+        "status": "unresolved",
+        "link_score": 0.0035,
+        "unrounded_link_score": 0.003493148957209619,
+        "score_note": "Learned candidate score, not a calibrated probability",
+        "linker_version": "9f31917ad1c4d0358f461f8b2e86f6a0ddb9e9dae515062c42efa4cbf4a21d03",
+        "candidates": [
+          {
+            "entity_id": "Q398",
+            "name": "البحرين",
+            "score": 0.0035
+          },
+          {
+            "entity_id": "Q12215884",
+            "name": "سعد البريك",
+            "score": 0.0001
+          },
+          {
+            "entity_id": "Q205512",
+            "name": "أسطول الحرية",
+            "score": 0.0001
+          }
+        ],
+        "category": "locations"
+      }
+    ],
+    "evidence": [
+      {
+        "category": "countries",
+        "mention": "البحرين",
+        "start": 21,
+        "end": 28,
+        "passage": "الاحتجاجات مستمرة في البحرين منذ 21 يوما\n\nشهدت العاصمة البحرينية المنامة اليوم الأحد تظاهر آلاف المحتجين امام قصر القضيبية حيث تعقد الحكومة البحرينية اجتماعاتها, مطالبين بإجراء إصلاحات سياسية وإسقاط الحكومة.\n"
+      },
+      {
+        "category": "countries",
+        "mention": "تونس",
+        "start": 1354,
+        "end": 1358,
+        "passage": "ن تأتي في وقت لا تزال تشهد عدد من الدول العربية مثل ليبيا والأردن واليمن والجزائر والمغرب والعراق مظاهرات احتجاجا على الأوضاع السياسية والاجتماعية, كما أدت المظاهرات الاحتجاجية في تونس ومصر إلى الإطاحة بنظام الرئيسين زين العابدين بن علي وحسني مبارك."
+      },
+      {
+        "category": "countries",
+        "mention": "مصر",
+        "start": 1360,
+        "end": 1363,
+        "passage": " في وقت لا تزال تشهد عدد من الدول العربية مثل ليبيا والأردن واليمن والجزائر والمغرب والعراق مظاهرات احتجاجا على الأوضاع السياسية والاجتماعية, كما أدت المظاهرات الاحتجاجية في تونس ومصر إلى الإطاحة بنظام الرئيسين زين العابدين بن علي وحسني مبارك."
+      },
+      {
+        "category": "locations",
+        "mention": "منامة",
+        "start": 67,
+        "end": 72,
+        "passage": "الاحتجاجات مستمرة في البحرين منذ 21 يوما\n\nشهدت العاصمة البحرينية المنامة اليوم الأحد تظاهر آلاف المحتجين امام قصر القضيبية حيث تعقد الحكومة البحرينية اجتماعاتها, مطالبين بإجراء إصلاحات سياسية وإسقاط الحكومة.\nوذكرت وكالة الأنباء الفرنسية (ا ف ب) أن\" آلا"
+      },
+      {
+        "category": "locations",
+        "mention": "دوار اللؤلؤة",
+        "start": 559,
+        "end": 571,
+        "passage": "\nوتجمهر الآلاف من المحتجين أمام قصر القضيبية في العاصمة المنامة, مرددين هتافات وشعارات مناهضة للملك حمد بن عيسى ال خليفة لا سيما \"يسقط حمد .\nولاتزال المظاهرات الاحتجاجية مستمرة في دوار اللؤلؤة وسط العاصمة البحرينية, وهو دوار بات يشكل رمزا للحركة المطالبة بالتغيير في المملكة.\nوتأتي المظاهرات بعد يومين من مواجهات واشتباكات عنيفة طائفية في بلدة وسط البحرين, مما أدى إلى إصا"
+      },
+      {
+        "category": "locations",
+        "mention": "وسط البحرين",
+        "start": 723,
+        "end": 734,
+        "passage": "جاجية مستمرة في دوار اللؤلؤة وسط العاصمة البحرينية, وهو دوار بات يشكل رمزا للحركة المطالبة بالتغيير في المملكة.\nوتأتي المظاهرات بعد يومين من مواجهات واشتباكات عنيفة طائفية في بلدة وسط البحرين, مما أدى إلى إصابة عدد من الأشخاص بجروح.\nودخلت الاحتجاجات التي تشهدها مملكة البحرين, والتي اسفرت عن سقوط مدنيين, يومها 21 الأحد, حيث يطالب المحتجون بتشكيل حكومة جديدة وباصلاحات سي"
+      }
+    ],
+    "ungrounded_predictions": [],
+    "review_status": "pending",
+    "relationships_note": "Model-proposed relationships are unreviewed; ranking uses grounded mentions only",
+    "elapsed_seconds": 36.599
+  },
+  {
+    "status": "ready",
+    "article": {
+      "source_url": "https://ar.wikinews.org/wiki?curid=11243",
+      "source_id": "wikinews_mewsli9",
+      "author": "Wikinews contributors",
+      "license_id": "CC-BY-2.5",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "date": "2012-12-23",
+      "date_kind": "revision_date_publication_unknown",
+      "language": "ar",
+      "source_revision": "42323",
+      "title": "ولي عهد البحرين يحذر من تصعيد الاحتجاجات",
+      "body": "حذر الشيخ سلمان بن حمد آل خليفة ولي عهد البحرين جميع الأطراف من تصعيد مواجهة مع الأغلبية الغاضبة والتي تطالب بتشكيل حكومة منتخبة، ودعا الشيخ سلمان إلى التحلي بالصبر قبل إجراء حوار وطني في المملكة.\nوكان ولي العهد البحريني قد أعلن انه سيقود حوارا مع المعارضة وقال للتلفزيون الحكومي إنه سيسمح باستمرار الاحتجاجات إلا انه يتعين أن تظل سلمية، وقال الشيخ سلمان إن هذه الاجتماعات الحاشدة يتعين ألا تتعدى على حريات الآخرين وحث جميع الأطراف على عدم تصعيد الأمور أو الانزلاق إلى تهييج المشاعر.\nوكانت احتجاجات البحرين سلمية إلى حد كبير مستلهمة زخم التجمعات الحاشدة التي أطاحت برئيسي مصر وتونس قبل اندلاع اشتباكات مسلحة في ليبيا وقيام احتجاجات اصغر نطاقا في دول خليجية مثل سلطنة عمان.\nإلا أن الحكومة تحاول إظهار الأزمة على أنها صراع طائفي.",
+      "article_id": "ar-11243"
+    },
+    "cache_key": "7ed2142b71501aad9756aa728fb429fb40882970e3bf8d3f42b2963f3c055161",
+    "cache_hit": false,
+    "pipeline_identity": "7bb217afa48f24dc5134c8d30d990c008fe25fd53e710d1cf9e3df594149d14c",
+    "model": {
+      "base": "Qwen/Qwen2.5-3B-Instruct",
+      "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "adapter_sha256": "82739bdebf112e5eb6f5bf8e31f4e2845a04d5a11c69624293b076eeda844a51",
+      "adapter_config_sha256": "2353cfd25010b497654882dac324ebc6ab2dd18a6bdf3ee74cab63733868644f",
+      "tokenizer_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "tokenizer_files": {
+        "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+        "special_tokens_map.json": "890efa1686cf49870d5018b948316d11c6d9ce121a942803eeb4224dcc7db3f0",
+        "tokenizer.json": "9c5ae00e602b8860cbd784ba82a8aa14e8feecec692e7076590d014d7b7fdafa",
+        "tokenizer_config.json": "0d2be11c79ca0320ee8f81abe61f98f4b043df0cd2784109100fb5b21dc78d0b",
+        "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      },
+      "prompt_sha256": "a5d8e6f21028065254d4d97961a5ed5626224f321080a938d39baa75ec2ff4d3",
+      "schema_version": "extraction-v3-locations",
+      "max_new_tokens": 768,
+      "chunk_tokens": 512,
+      "chunk_stride": 480,
+      "adapter_enabled": true,
+      "execution": {
+        "quantization": "nf4-double",
+        "dtype": "float16"
+      },
+      "run_id": "extraction-only-v3"
+    },
+    "schema_version": "extraction-v3-locations",
+    "generated_at": "2026-10-01T12:10:14.853439+00:00",
+    "raw_model_outputs": [
+      "{\"countries\": [], \"locations\": [], \"companies\": [], \"organizations\": [], \"profiles\": [\"سلمان بن حمد آل خليجة\"], \"systems\": [], \"topics\": [\"البحرين\", \"الاحتجاجات\", \"الحوار الوطني\"], \"relationships\": [{\"subject\": \"سلمان بن حمد آل خليجة\", \"relation\": \"حذر\", \"object\": \"جميع الأطراف\"}, {\"subject\": \"سلمان بن حمد آل خليجة\", \"relation\": \"دعا\", \"object\": \"التحلي بالصبر\"}, {\"subject\": \"سلمان بن حمد آل خليجة\", \"relation\": \"قال\", \"object\": \"التلفزيون الحكومي\"}, {\"subject\": \"سلمان بن حمد آل خليجة\", \"relation\": \"حث\", \"object\": \"جميع الأطراف\"}]}"
+    ],
+    "extraction": {
+      "countries": [],
+      "locations": [],
+      "companies": [],
+      "organizations": [],
+      "profiles": [
+        "سلمان بن حمد آل خليجة"
+      ],
+      "systems": [],
+      "topics": [
+        "البحرين",
+        "الاحتجاجات",
+        "الحوار الوطني"
+      ],
+      "relationships": [
+        {
+          "subject": "سلمان بن حمد آل خليجة",
+          "relation": "حذر",
+          "object": "جميع الأطراف"
+        },
+        {
+          "subject": "سلمان بن حمد آل خليجة",
+          "relation": "دعا",
+          "object": "التحلي بالصبر"
+        },
+        {
+          "subject": "سلمان بن حمد آل خليجة",
+          "relation": "قال",
+          "object": "التلفزيون الحكومي"
+        },
+        {
+          "subject": "سلمان بن حمد آل خليجة",
+          "relation": "حث",
+          "object": "جميع الأطراف"
+        }
+      ]
+    },
+    "tags": {
+      "countries": [],
+      "locations": [],
+      "companies": [],
+      "organizations": [],
+      "profiles": [],
+      "systems": [],
+      "topics": [
+        "البحرين",
+        "الاحتجاجات"
+      ]
+    },
+    "entity_links": [
+      {
+        "mention": "البحرين",
+        "status": "topic_phrase",
+        "entity_id": null,
+        "canonical_name": null,
+        "category": "topics"
+      },
+      {
+        "mention": "الاحتجاجات",
+        "status": "topic_phrase",
+        "entity_id": null,
+        "canonical_name": null,
+        "category": "topics"
+      }
+    ],
+    "evidence": [
+      {
+        "category": "topics",
+        "mention": "البحرين",
+        "start": 8,
+        "end": 15,
+        "passage": "ولي عهد البحرين يحذر من تصعيد الاحتجاجات\n\nحذر الشيخ سلمان بن حمد آل خليفة ولي عهد البحرين جميع الأطراف من تصعيد مواجهة مع الأغلبية الغاضبة والتي تطالب بتشكيل حكومة منتخبة، ودعا الشيخ سلمان إلى ال"
+      },
+      {
+        "category": "topics",
+        "mention": "الاحتجاجات",
+        "start": 30,
+        "end": 40,
+        "passage": "ولي عهد البحرين يحذر من تصعيد الاحتجاجات\n\nحذر الشيخ سلمان بن حمد آل خليفة ولي عهد البحرين جميع الأطراف من تصعيد مواجهة مع الأغلبية الغاضبة والتي تطالب بتشكيل حكومة منتخبة، ودعا الشيخ سلمان إلى التحلي بالصبر قبل إجراء حوا"
+      }
+    ],
+    "ungrounded_predictions": [
+      {
+        "category": "profiles",
+        "prediction": "سلمان بن حمد آل خليجة",
+        "reason": "not a literal article mention"
+      },
+      {
+        "category": "topics",
+        "prediction": "الحوار الوطني",
+        "reason": "not a literal article mention"
+      }
+    ],
+    "review_status": "pending",
+    "relationships_note": "Model-proposed relationships are unreviewed; ranking uses grounded mentions only",
+    "elapsed_seconds": 39.135
+  },
+  {
+    "status": "ready",
+    "article": {
+      "source_url": "https://ar.wikinews.org/wiki?curid=11291",
+      "source_id": "wikinews_mewsli9",
+      "author": "Wikinews contributors",
+      "license_id": "CC-BY-2.5",
+      "license_url": "https://creativecommons.org/licenses/by/2.5/",
+      "date": "2011-07-09",
+      "date_kind": "revision_date_publication_unknown",
+      "language": "ar",
+      "source_revision": "26284",
+      "title": "أخبار زلزال اليابان 15-3-2011 12:00",
+      "body": "أخبار تتعلق بزلزال اليابان الكبير في  15 مارس 2011 الساعة 12:00 حسب توقيت اليابان المحلي.\nالزلازل والتسونامي والضحايا\nارتفاع عدد الضحايا والمفقودين إلى ما يزيد على 5500 شخص، مع وجود ما يزيد على 460 ألف لاجئ يعانون من نقص الطعام والعناية الصحية.\nمحطة فوكوشيما النووية\nسماع صوت رئيس الوزراء ناوتو كان إلى خارج غرفة الاجتماعات يوبخ بصوت عالي مسؤولين في شركة طوكيو للطاقة الكهربائية بسبب تأخر وصول المعلومات إلى رئاسة مجلس الوزراء المتعلقة بمحطة فوكوشيما النووية الأولى لتوليد الطاقة.\nالخدمات (كهرباء، ماء، أغذية، مواصلات)\nأعلنت شركة توهوكو للطاقة الكهربائية عن تنفيذ عمليات قطع دورية للكهرباء في الفترة بين 16 إلى 18 من الشهر الجاري، وذلك باستثناء المناطق المتضررة من الكارثة.\nاقتصاد وأخرى\nتعطل نظام المحاسبة في بنك ميزوهو وتوقف عمليات التحويل عبر النوافذ في الفرع الرئيسي.\nاقرأ أيضا",
+      "article_id": "ar-11291"
+    },
+    "cache_key": "f5b983c6402d6823cd538b8cf295f3472c0472ea5cfb843a62e015337f56021c",
+    "cache_hit": false,
+    "pipeline_identity": "7bb217afa48f24dc5134c8d30d990c008fe25fd53e710d1cf9e3df594149d14c",
+    "model": {
+      "base": "Qwen/Qwen2.5-3B-Instruct",
+      "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "adapter_sha256": "82739bdebf112e5eb6f5bf8e31f4e2845a04d5a11c69624293b076eeda844a51",
+      "adapter_config_sha256": "2353cfd25010b497654882dac324ebc6ab2dd18a6bdf3ee74cab63733868644f",
+      "tokenizer_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "tokenizer_files": {
+        "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+        "special_tokens_map.json": "890efa1686cf49870d5018b948316d11c6d9ce121a942803eeb4224dcc7db3f0",
+        "tokenizer.json": "9c5ae00e602b8860cbd784ba82a8aa14e8feecec692e7076590d014d7b7fdafa",
+        "tokenizer_config.json": "0d2be11c79ca0320ee8f81abe61f98f4b043df0cd2784109100fb5b21dc78d0b",
+        "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      },
+      "prompt_sha256": "a5d8e6f21028065254d4d97961a5ed5626224f321080a938d39baa75ec2ff4d3",
+      "schema_version": "extraction-v3-locations",
+      "max_new_tokens": 768,
+      "chunk_tokens": 512,
+      "chunk_stride": 480,
+      "adapter_enabled": true,
+      "execution": {
+        "quantization": "nf4-double",
+        "dtype": "float16"
+      },
+      "run_id": "extraction-only-v3"
+    },
+    "schema_version": "extraction-v3-locations",
+    "generated_at": "2026-10-01T12:53:50.369973+00:00",
+    "raw_model_outputs": [
+      "{\"countries\": [], \"locations\": [\"اليابان\"], \"companies\": [\"طوكيو للطاقة الكهربائية\", \"شركة توهوكو للطاقة الكهربائية\", \"بنك ميزوهو\"], \"organizations\": [], \"profiles\": [], \"systems\": [], \"topics\": [], \"relationships\": [{\"subject\": \"رئيس الوزراء\", \"relation\": \"was criticized by\", \"object\": \"مسؤولين في شركة طوكيو للطاقة الكهربائية\"}]}"
+    ],
+    "extraction": {
+      "countries": [],
+      "locations": [
+        "اليابان"
+      ],
+      "companies": [
+        "طوكيو للطاقة الكهربائية",
+        "شركة توهوكو للطاقة الكهربائية",
+        "بنك ميزوهو"
+      ],
+      "organizations": [],
+      "profiles": [],
+      "systems": [],
+      "topics": [],
+      "relationships": [
+        {
+          "subject": "رئيس الوزراء",
+          "relation": "was criticized by",
+          "object": "مسؤولين في شركة طوكيو للطاقة الكهربائية"
+        }
+      ]
+    },
+    "tags": {
+      "countries": [],
+      "locations": [
+        "Japan"
+      ],
+      "companies": [
+        "طوكيو للطاقة الكهربائية",
+        "شركة توهوكو للطاقة الكهربائية",
+        "بنك ميزوهو"
+      ],
+      "organizations": [],
+      "profiles": [],
+      "systems": [],
+      "topics": []
+    },
+    "entity_links": [
+      {
+        "mention": "اليابان",
+        "entity_id": "Q17",
+        "canonical_name": "Japan",
+        "status": "linked",
+        "link_score": 0.991,
+        "unrounded_link_score": 0.99096304640809,
+        "score_note": "Learned candidate score, not a calibrated probability",
+        "linker_version": "9f31917ad1c4d0358f461f8b2e86f6a0ddb9e9dae515062c42efa4cbf4a21d03",
+        "candidates": [
+          {
+            "entity_id": "Q17",
+            "name": "Japan",
+            "score": 0.991
+          },
+          {
+            "entity_id": "Q1378945",
+            "name": "اليوان",
+            "score": 0.0022
+          },
+          {
+            "entity_id": "Q8072",
+            "name": "البركان",
+            "score": 0.0019
+          }
+        ],
+        "category": "locations"
+      },
+      {
+        "mention": "طوكيو للطاقة الكهربائية",
+        "entity_id": null,
+        "canonical_name": null,
+        "status": "unresolved",
+        "link_score": 0.0,
+        "unrounded_link_score": 9.204157967101036e-08,
+        "score_note": "Learned candidate score, not a calibrated probability",
+        "linker_version": "9f31917ad1c4d0358f461f8b2e86f6a0ddb9e9dae515062c42efa4cbf4a21d03",
+        "candidates": [
+          {
+            "entity_id": "Q205512",
+            "name": "أسطول الحرية",
+            "score": 0.0
+          },
+          {
+            "entity_id": "Q974135",
+            "name": "العلاج الكيميائي",
+            "score": 0.0
+          },
+          {
+            "entity_id": "Q1146346",
+            "name": "للقوات اللبنانية",
+            "score": 0.0
+          }
+        ],
+        "category": "companies"
+      },
+      {
+        "mention": "شركة توهوكو للطاقة الكهربائية",
+        "entity_id": null,
+        "canonical_name": null,
+        "status": "unresolved",
+        "link_score": 0.0,
+        "unrounded_link_score": 5.03193299178911e-09,
+        "score_note": "Learned candidate score, not a calibrated probability",
+        "linker_version": "9f31917ad1c4d0358f461f8b2e86f6a0ddb9e9dae515062c42efa4cbf4a21d03",
+        "candidates": [
+          {
+            "entity_id": "Q166729",
+            "name": "شركة بترول أبوظبي للعمليات البترولية البرية (أدكو)",
+            "score": 0.0
+          },
+          {
+            "entity_id": "Q12207559",
+            "name": "حركة المقاومة الإسلامية",
+            "score": 0.0
+          },
+          {
+            "entity_id": "Q203934",
+            "name": "الحركة الاشتراكية اليونانية",
+            "score": 0.0
+          }
+        ],
+        "category": "companies"
+      },
+      {
+        "mention": "بنك ميزوهو",
+        "entity_id": null,
+        "canonical_name": null,
+        "status": "unresolved",
+        "link_score": 0.0,
+        "unrounded_link_score": 1.7055660452771803e-06,
+        "score_note": "Learned candidate score, not a calibrated probability",
+        "linker_version": "9f31917ad1c4d0358f461f8b2e86f6a0ddb9e9dae515062c42efa4cbf4a21d03",
+        "candidates": [
+          {
+            "entity_id": "Q1253",
+            "name": "بان كي مون",
+            "score": 0.0
+          },
+          {
+            "entity_id": "Q34600",
+            "name": "كيوتو",
+            "score": 0.0
+          },
+          {
+            "entity_id": "Q58132",
+            "name": "نيكولاس مادورو",
+            "score": 0.0
+          }
+        ],
+        "category": "companies"
+      }
+    ],
+    "evidence": [
+      {
+        "category": "locations",
+        "mention": "اليابان",
+        "start": 12,
+        "end": 19,
+        "passage": "أخبار زلزال اليابان 15-3-2011 12:00\n\nأخبار تتعلق بزلزال اليابان الكبير في  15 مارس 2011 الساعة 12:00 حسب توقيت اليابان المحلي.\nالزلازل والتسونامي والضحايا\nارتفاع عدد الضحايا والمفقودين إلى ما يزيد عل"
+      },
+      {
+        "category": "companies",
+        "mention": "طوكيو للطاقة الكهربائية",
+        "start": 392,
+        "end": 415,
+        "passage": "ع وجود ما يزيد على 460 ألف لاجئ يعانون من نقص الطعام والعناية الصحية.\nمحطة فوكوشيما النووية\nسماع صوت رئيس الوزراء ناوتو كان إلى خارج غرفة الاجتماعات يوبخ بصوت عالي مسؤولين في شركة طوكيو للطاقة الكهربائية بسبب تأخر وصول المعلومات إلى رئاسة مجلس الوزراء المتعلقة بمحطة فوكوشيما النووية الأولى لتوليد الطاقة.\nالخدمات (كهرباء، ماء، أغذية، مواصلات)\nأعلنت شركة توهوكو للطاقة الكهربائية عن "
+      },
+      {
+        "category": "companies",
+        "mention": "شركة توهوكو للطاقة الكهربائية",
+        "start": 562,
+        "end": 591,
+        "passage": "ن في شركة طوكيو للطاقة الكهربائية بسبب تأخر وصول المعلومات إلى رئاسة مجلس الوزراء المتعلقة بمحطة فوكوشيما النووية الأولى لتوليد الطاقة.\nالخدمات (كهرباء، ماء، أغذية، مواصلات)\nأعلنت شركة توهوكو للطاقة الكهربائية عن تنفيذ عمليات قطع دورية للكهرباء في الفترة بين 16 إلى 18 من الشهر الجاري، وذلك باستثناء المناطق المتضررة من الكارثة.\nاقتصاد وأخرى\nتعطل نظام المحاسبة في بنك ميزوهو وتوقف عمليات ا"
+      },
+      {
+        "category": "companies",
+        "mention": "بنك ميزوهو",
+        "start": 746,
+        "end": 756,
+        "passage": " توهوكو للطاقة الكهربائية عن تنفيذ عمليات قطع دورية للكهرباء في الفترة بين 16 إلى 18 من الشهر الجاري، وذلك باستثناء المناطق المتضررة من الكارثة.\nاقتصاد وأخرى\nتعطل نظام المحاسبة في بنك ميزوهو وتوقف عمليات التحويل عبر النوافذ في الفرع الرئيسي.\nاقرأ أيضا"
+      }
+    ],
+    "ungrounded_predictions": [],
+    "review_status": "pending",
+    "relationships_note": "Model-proposed relationships are unreviewed; ranking uses grounded mentions only",
+    "elapsed_seconds": 25.44
+  }
+]

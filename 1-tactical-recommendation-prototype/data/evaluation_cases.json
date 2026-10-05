@@ -1,0 +1,14 @@
+[
+  {
+    "case_id": "lockheed_saudi_direct",
+    "user_id": "user_004",
+    "description": "Direct Lockheed Martin activity in Saudi Arabia should rank first.",
+    "relevant_article_ids": ["article_002", "article_010", "incoming_001"]
+  },
+  {
+    "case_id": "gulf_energy_risk",
+    "user_id": "user_002",
+    "description": "Gulf energy and Strait of Hormuz developments should rank highly.",
+    "relevant_article_ids": ["article_003", "article_008"]
+  }
+]

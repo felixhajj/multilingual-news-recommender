@@ -1,0 +1,23 @@
+[
+  {
+    "article_id": "incoming_001",
+    "title": "لوكهيد مارتن تبحث فرصا جديدة مع وزارة الدفاع السعودية",
+    "summary": "تناقش لوكهيد مارتن دعما لمنظومات الدفاع الجوي في المملكة العربية السعودية.",
+    "date": "2026-07-01",
+    "product_type": "Mock Incoming Article"
+  },
+  {
+    "article_id": "incoming_002",
+    "title": "Saudi Arabia evaluates an MQ-9B support proposal",
+    "summary": "The Saudi MoD is reviewing a support package for the MQ-9B SkyGuardian.",
+    "date": "2026-07-02",
+    "product_type": "Mock Incoming Article"
+  },
+  {
+    "article_id": "incoming_003",
+    "title": "AeroShield Dynamics opens talks on a new counter-drone platform",
+    "summary": "The newly named supplier discussed the platform with Gulf officials.",
+    "date": "2026-07-03",
+    "product_type": "Mock Incoming Article"
+  }
+]

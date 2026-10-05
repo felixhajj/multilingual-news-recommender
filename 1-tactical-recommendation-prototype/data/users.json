@@ -1,0 +1,66 @@
+[
+  {
+    "user_id": "user_001",
+    "name": "Defense Analyst",
+    "role": "Tracks Saudi defense relations, air defense systems, and major defense suppliers",
+    "query": "Track Saudi defense relations, air defense systems, and major suppliers including Lockheed Martin, Boeing, and Raytheon.",
+    "interests": {
+      "countries": ["Saudi Arabia", "USA"],
+      "companies": ["Lockheed Martin", "Boeing", "Raytheon"],
+      "organizations": ["RSADF", "Saudi Ministry of Defense"],
+      "profiles": ["Crown Prince Mohammad", "Prince Khaled"],
+      "systems": ["F-35", "Air defense systems", "Counter-drone systems"],
+      "topics": ["Saudi-US defense relations", "Saudi-French defense relations", "Saudi-South Korean defense relations"]
+    }
+  },
+  {
+    "user_id": "user_002",
+    "name": "Energy Risk Lead",
+    "role": "Monitors Gulf energy companies, oil production, and LNG/Gas developments",
+    "query": "Track Gulf energy risk, oil and gas production, LNG developments, and major companies including Aramco, TotalEnergies, and QatarEnergy.",
+    "interests": {
+      "countries": ["Saudi Arabia", "United Arab Emirates", "Iran"],
+      "companies": ["Aramco", "TotalEnergies", "QatarEnergy"],
+      "organizations": ["OPEC"],
+      "profiles": [],
+      "systems": ["LNG", "Gas"],
+      "topics": ["Oil production", "Strait of Hormuz", "Iran-US situation"]
+    }
+  },
+  {
+    "user_id": "user_003",
+    "name": "Gulf Policy Advisor",
+    "role": "Follows Gulf leadership, regional relations, and sensitive political files",
+    "query": "Track Gulf leadership, regional diplomacy, Iran's nuclear program, the Yemen war, and sensitive political relations.",
+    "interests": {
+      "countries": ["Saudi Arabia", "Turkey", "Qatar", "Iran"],
+      "companies": [],
+      "organizations": ["Qatar Ministry of Defense"],
+      "profiles": ["President Erdogan", "Recep Tayyip Erdogan", "Khamenei", "Emir Tamim"],
+      "systems": [],
+      "topics": ["Saudi-Turkish relations", "Qatari-US relations", "Iran nuclear program", "Yemen War"]
+    }
+  },
+  {
+    "user_id": "user_004",
+    "name": "Lockheed Saudi Watch",
+    "role": "Wants direct matches for Lockheed Martin activity in Saudi Arabia and related defense developments",
+    "query": "Track Lockheed Martin activity, contracts, partnerships, and military systems connected to Saudi Arabia.",
+    "interests": {
+      "countries": ["Saudi Arabia"],
+      "companies": ["Lockheed Martin"],
+      "organizations": ["Saudi Ministry of Defense", "RSADF"],
+      "profiles": [],
+      "systems": ["Air defense systems", "F-35"],
+      "topics": ["Saudi-US defense relations"]
+    },
+    "required_filters": {
+      "countries": ["Saudi Arabia"],
+      "companies": ["Lockheed Martin"],
+      "organizations": [],
+      "profiles": [],
+      "systems": [],
+      "topics": []
+    }
+  }
+]

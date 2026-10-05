@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "source_id": "project_mock",
+      "name": "Tactical recommendation prototype mock corpus",
+      "homepage": "https://example.invalid/tactical-recommendation-prototype",
+      "rights_status": "approved",
+      "license_id": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "allowed_uses": [
+        "model_training",
+        "evaluation"
+      ],
+      "notes": "Synthetic records written for this prototype; no publisher article text is included."
+    },
+    {
+      "source_id": "tactical_report_internal",
+      "name": "Tactical Report internal archive",
+      "homepage": "https://www.tacticalreport.com/",
+      "rights_status": "requires_authorization",
+      "license_id": null,
+      "license_url": null,
+      "allowed_uses": [],
+      "notes": "Enable model training only after the organisation records written authorization and the permitted data scope."
+    },
+    {
+      "source_id": "wikidata_entities",
+      "name": "Wikidata structured entity data",
+      "homepage": "https://www.wikidata.org/",
+      "rights_status": "approved",
+      "license_id": "CC0-1.0",
+      "license_url": "https://www.wikidata.org/wiki/Wikidata:Copyright",
+      "allowed_uses": [
+        "entity_catalogue"
+      ],
+      "notes": "Use structured labels, aliases, and IDs to expand the entity catalogue; this is not an article-text corpus."
+    },
+    {
+      "source_id": "gdelt_discovery",
+      "name": "GDELT article discovery metadata",
+      "homepage": "https://www.gdeltproject.org/",
+      "rights_status": "discovery_only",
+      "license_id": null,
+      "license_url": null,
+      "allowed_uses": [
+        "article_discovery"
+      ],
+      "notes": "GDELT can discover article URLs and metadata. Linked publisher article text keeps its own rights and is not automatically approved for training."
+    },
+    {
+      "source_id": "approved_public_article_source",
+      "name": "Placeholder for a reviewed public article source",
+      "homepage": "https://example.invalid/replace-with-approved-source",
+      "rights_status": "requires_authorization",
+      "license_id": null,
+      "license_url": null,
+      "allowed_uses": [],
+      "notes": "Replace this entry with a concrete source and documented reuse terms before importing its text."
+    }
+  ]
+}

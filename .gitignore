@@ -1,0 +1,33 @@
+# Python environments and local caches
+**/.venv/
+**/__pycache__/
+**/*.py[cod]
+**/.hf-cache/
+**/.pip-cache/
+**/.tmp/
+**/.pytest_cache/
+
+# Local configuration and logs
+**/.env
+**/.env.*
+**/*.log
+**/prototype.stdout.log
+**/prototype.stderr.log
+
+# Large training checkpoints and local exports
+1-tactical-recommendation-prototype/output/**/checkpoints/
+1-tactical-recommendation-prototype/output/**/optimizer.pt
+*.zip
+*.zip.part*
+**/*.safetensors
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Reproducible portfolio datasets, indexes and experiment working files
+1-tactical-recommendation-prototype/output/portfolio/
+1-tactical-recommendation-prototype/.downloads/
+**/*.sqlite*
+**/.gradio/

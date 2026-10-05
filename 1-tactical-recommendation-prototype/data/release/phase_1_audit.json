@@ -1,0 +1,239 @@
+{
+  "audited_at": "2026-09-16T18:24:02.045896+00:00",
+  "policy": "No inference, training, label edits or held-out prediction inspection; release records aggregated only.",
+  "corpus": {
+    "articles": 5000,
+    "languages": {
+      "ar": 1461,
+      "en": 3539
+    },
+    "splits": {
+      "test": 519,
+      "train": 3983,
+      "validation": 498
+    },
+    "duplicate_article_ids": 0,
+    "duplicate_content_hashes": 0,
+    "groups_crossing_splits": 0
+  },
+  "training": {
+    "accepted": 26,
+    "languages": {
+      "en": 17,
+      "ar": 9
+    },
+    "review_statuses": {
+      "machine_checked_not_human_reviewed": 26
+    },
+    "non_train_rows": 0,
+    "frozen_review_group_overlap": 0,
+    "source_hash_mismatches": 0,
+    "nonliteral_entity_values": 0,
+    "nonempty_fields": {
+      "profiles": 16,
+      "topics": 26,
+      "countries": 8,
+      "organizations": 7,
+      "companies": 2
+    },
+    "recorded_rejections": 207,
+    "rejection_reasons": {
+      "No agreement with independently published positive mentions": 15,
+      "Relationship values must be non-empty strings": 4,
+      "Label is not literally grounded in source text": 120,
+      "The model output did not contain a valid JSON object": 24,
+      "Extraction response must contain exactly ['companies', 'countries', 'organizations', 'profiles', 'relationships', 'systems', 'topics']": 40,
+      "Every relationship needs subject, relation, and object": 4
+    },
+    "rejection_log_limit": "The current preparer overwrites rejection history on resume; this is not guaranteed cumulative."
+  },
+  "runs": {
+    "domain-extraction-v1": {
+      "status": "completed",
+      "stage": "sft",
+      "dataset_examples": 26,
+      "encoded_sequences": 26,
+      "optimizer_steps": 24,
+      "unique_articles_seen": 26,
+      "supervised_tokens": 13512,
+      "maximum_weight_change": 0.001964124385267496,
+      "elapsed_seconds": 188.3,
+      "dataset_hash": "1837fc974da10f01b6f03cf20e2ca035faa980db791ff1a5989044271c1c52e2",
+      "base_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "adapter_sha256": "bbf1c12ed261396ade9f432a59526a28d40ace33bc1ab8c96bcb4d1c511d6d11",
+      "promotion_status": "not_evaluated",
+      "adapter_hash_matches_manifest": true
+    },
+    "domain-v1": {
+      "status": "completed",
+      "stage": "domain",
+      "dataset_examples": 500,
+      "encoded_sequences": 791,
+      "optimizer_steps": 24,
+      "unique_articles_seen": 90,
+      "supervised_tokens": 67225,
+      "maximum_weight_change": 0.002004720736294985,
+      "elapsed_seconds": 195.7,
+      "dataset_hash": "9b4f8d2c5d7f63a4af4fdde20a22219e77ddebeb5d1dd78c5c7f7e79775a1762",
+      "base_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "adapter_sha256": "7208177008ee8e5e22c0f64b0f6bcdd8860c1fe24732ccddab105072a1ff824a",
+      "promotion_status": "not_evaluated",
+      "adapter_hash_matches_manifest": true
+    },
+    "extraction-only-v1": {
+      "status": "completed",
+      "stage": "sft",
+      "dataset_examples": 26,
+      "encoded_sequences": 26,
+      "optimizer_steps": 24,
+      "unique_articles_seen": 26,
+      "supervised_tokens": 13512,
+      "maximum_weight_change": 0.0019832972902804613,
+      "elapsed_seconds": 240.56,
+      "dataset_hash": "1837fc974da10f01b6f03cf20e2ca035faa980db791ff1a5989044271c1c52e2",
+      "base_revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+      "adapter_sha256": "173ffaaefbceff781bc8344269eada4c392f66f6d0dc537279b51ae99599245a",
+      "promotion_status": "not_evaluated",
+      "adapter_hash_matches_manifest": true
+    }
+  },
+  "review": {
+    "extraction_items": 30,
+    "extraction_statuses": {
+      "pending": 30
+    },
+    "extraction_roles": {
+      "validation": 10,
+      "test": 20
+    },
+    "recommendation_items": 30,
+    "recommendation_statuses": {
+      "pending": 30
+    },
+    "recommendation_roles": {
+      "validation": 10,
+      "test": 20
+    },
+    "recommendation_queries": 3
+  },
+  "opaque_prediction_line_counts": {
+    "base": 30,
+    "domain-extraction-v1": 30,
+    "extraction-only-v1": 30
+  },
+  "release": {
+    "sqlite_check": "ok",
+    "indexed_articles": 307,
+    "cached_analyses": 312,
+    "model_run": "legacy-20-mock-examples",
+    "languages": {
+      "ar": 81,
+      "en": 226
+    },
+    "pipeline_identities": {
+      "ef1942e937727843407122fae420c3f13f1867070a5352ea3f8ca842e7b5ae79": 7,
+      "dddd62eef3654ddb44009c4cce52b4e730e739493433637d3bb3ad6d78f85e20": 300
+    },
+    "no_grounded_mentions": 54,
+    "review_statuses": {
+      "pending": 307
+    },
+    "frozen_extraction_overlap": 0,
+    "missing_frozen_ranking_articles": [],
+    "recorded_failed_attempts": 194,
+    "failure_reasons": {
+      "Every relationship needs subject, relation, and object": 122,
+      "The model output did not contain a valid JSON object": 40,
+      "Extraction response must contain exactly ['companies', 'countries', 'organizations', 'profiles', 'relationships', 'systems', 'topics']": 31,
+      "systems must be a list of non-empty strings": 1
+    }
+  },
+  "budget": {
+    "consumed_seconds": 24269.201999999837,
+    "limit_seconds": 86400,
+    "recovered_preparation_runs": [
+      "13190876db4da8d3300e2a1156192a68d44f0f7abd3b8065a720448585911b14"
+    ],
+    "recovery_note": "Interrupted indexing time recovered from last durable progress; completed training preserved",
+    "recovered_release_runs": [
+      "258b68eca76e883a04b6e2f9172d837966812d640349c553dd426e230bbfeae0"
+    ],
+    "ledger_remaining_seconds": 62130.79800000016,
+    "limitation": "Recovered time is a durable-progress lower bound; unmetered early preparation is not proven accounted for."
+  },
+  "portfolio_artifact_bytes": 241429089,
+  "protected_sha256": {
+    "portfolio/corpus.jsonl": "26f44a775e09fd21139151417c7b91b681094a07c2b43801d53fad6f1e4bbac9",
+    "portfolio/corpus_manifest.json": "8b8cda3389736bb2eac2e8fbbbbb3bec87772bc358d8635c2e4b7073d16fcdda",
+    "portfolio/evaluation/base/manifest.json": "5c88ba68b70e9044b647d29507aeb60568f26eabcc715a85dde85a6c6d44d78a",
+    "portfolio/evaluation/base/predictions.jsonl": "fefe6ee4f351449fc6fff9c3a12fe37244e3b07462d863b8bda2114c2140a9a7",
+    "portfolio/evaluation/domain-extraction-v1/manifest.json": "82e687ba8e56559cb693d0032a159e99ab6a1f84e0995cb27862e308765a7d86",
+    "portfolio/evaluation/domain-extraction-v1/predictions.jsonl": "e063a6b8df5e1cb89736bc038f24b814bcbf6eca7b1ec217ba09bb1c6a00fc8f",
+    "portfolio/evaluation/extraction-only-v1/manifest.json": "4cde98c46b199921bad6b1f14e85b921de0d1713d870839ada7efe10f48e6f84",
+    "portfolio/evaluation/extraction-only-v1/predictions.jsonl": "551f76237884beb4afbe2f2e0c11f280393ad0659085c114f9dfb90b423ac7f7",
+    "portfolio/experiment_status.json": "b4d8f368cf3abeb54fa78cddb921a287d5a0dfdc2fa4f7ca9dac5c669c9145bb",
+    "portfolio/extraction_training.jsonl": "2a5efec1a7c84398179c8001475abc08b8b13018bdbe3a4ee3fe56acc939bbbf",
+    "portfolio/linker/entities.json": "42b27a09e8c2324263b0dafe1859258b0dcbf17db326e478558b0b0a827f33fe",
+    "portfolio/linker/entity_vectors.npy": "0be730a02ae70960fab8ec356754cafbf540b386d71ef087b0634f857a4d490c",
+    "portfolio/linker/final_holdout.jsonl": "76493eb38139ea771144de78876f891ccf586eb6b6874036f04442ac0fffc049",
+    "portfolio/linker/final_holdout_manifest.json": "9a941011503fcfc5ed297dca93b1d4e2f6d54f8cfd86f7ce43a9ceee7d952cda",
+    "portfolio/linker/final_metrics.json": "aa40181f96d835860ae0f0c14f7d8286f5efa2b89a02388b5f40e5630bf28ee1",
+    "portfolio/linker/final_predictions.jsonl": "61fc67c16bd0ea47f7c5888b64eedd25bdd0b6b32ce502becf72cf417cc020da",
+    "portfolio/linker/metrics.json": "ce0868f80bcf3c9f82175b89ed3bd497a42310066e4e3a062d176d5d24bfc69f",
+    "portfolio/linker/model.json": "ccab667ed043f5ff73d439ef5bcb3225104cd41acb6d5150c6587f05e88bf978",
+    "portfolio/linker/test_predictions.jsonl": "1283aacd00d42813b8743cc74b72d9771a45c998d9be5f91de3ba2e9ddb22169",
+    "portfolio/linker/validation_predictions.jsonl": "fb6fd37e1362f621788a338fb551a6e655f890afc9493ce43752bf029b87743c",
+    "portfolio/preparation_queue.json": "fd9aa70bc6cca497dacf9440182d49a39115b956e20af492a6dd2327580e7d81",
+    "portfolio/processing_budget.json": "4986cf8c3b7b60aa8ce98309018176e2bba9d3dbfa4feff08b9e8299a50356a9",
+    "portfolio/release.sqlite": "9652b6895e9dcbe5fa2d1801dc730f1ec730cbfc618292f838247474c9a6731e",
+    "portfolio/release_failures.jsonl": "d2887c92fd655febfd351d0e97a1f147fb2c01b2537572c71a43199e77475f33",
+    "portfolio/release_manifest.json": "fe2d3a26938e93edc90a5603e25cbe7fcc2d1f25bc813a447f0731ef664e33c1",
+    "portfolio/review/extraction.jsonl": "618b53470d9338fc9ca8c0b4f3e0fd8400ad1fa86afe43ac0904de2a3386c67d",
+    "portfolio/review/extraction_roles.json": "f58fb06a835aba5e4ebe39260672176bce066ea10b550c3bbaedf32af5528360",
+    "portfolio/review/frozen_extraction_manifest.json": "58fbc4e67e5c6dc65b4a671afb9049b2ed3ce301e4c4343772ab364f7a447ba3",
+    "portfolio/review/frozen_ranking_manifest.json": "2c4339c4d7d1e2ba460d1d4c406be24894970a21639faf6fcea08fbba1f21660",
+    "portfolio/review/ranking.jsonl": "f8f2115637225164abf318d0f39da4784b2759d50cf34a25f3309cfe7560fdc0",
+    "portfolio/runs/domain-extraction-v1/adapter/adapter_config.json": "2353cfd25010b497654882dac324ebc6ab2dd18a6bdf3ee74cab63733868644f",
+    "portfolio/runs/domain-extraction-v1/adapter/adapter_model.safetensors": "bbf1c12ed261396ade9f432a59526a28d40ace33bc1ab8c96bcb4d1c511d6d11",
+    "portfolio/runs/domain-extraction-v1/adapter/added_tokens.json": "f0acedf99e19ec0a5b797ffbd0b94328172ccd90f7f385bbc521cda2701b03ab",
+    "portfolio/runs/domain-extraction-v1/adapter/special_tokens_map.json": "890efa1686cf49870d5018b948316d11c6d9ce121a942803eeb4224dcc7db3f0",
+    "portfolio/runs/domain-extraction-v1/adapter/tokenizer.json": "9c5ae00e602b8860cbd784ba82a8aa14e8feecec692e7076590d014d7b7fdafa",
+    "portfolio/runs/domain-extraction-v1/adapter/tokenizer_config.json": "0d2be11c79ca0320ee8f81abe61f98f4b043df0cd2784109100fb5b21dc78d0b",
+    "portfolio/runs/domain-extraction-v1/adapter/vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+    "portfolio/runs/domain-extraction-v1/loss.jsonl": "526310d0b42da5c20aebfff2a0cbdb9ae71f1fcc86625b6f97124d500ecde708",
+    "portfolio/runs/domain-extraction-v1/manifest.json": "ce2a8e5275dca29fa1448c0aca083c0e3df7dc6e4caadfcf4f6244788e2f3565",
+    "portfolio/runs/domain-extraction-v1/training_article_ids.jsonl": "27b4df6fcd2cd81e38a9728cc2afd5da019465394ba8bc9f83df12637bc0b16a",
+    "portfolio/runs/domain-v1/adapter/adapter_config.json": "2353cfd25010b497654882dac324ebc6ab2dd18a6bdf3ee74cab63733868644f",
+    "portfolio/runs/domain-v1/adapter/adapter_model.safetensors": "7208177008ee8e5e22c0f64b0f6bcdd8860c1fe24732ccddab105072a1ff824a",
+    "portfolio/runs/domain-v1/adapter/added_tokens.json": "f0acedf99e19ec0a5b797ffbd0b94328172ccd90f7f385bbc521cda2701b03ab",
+    "portfolio/runs/domain-v1/adapter/special_tokens_map.json": "890efa1686cf49870d5018b948316d11c6d9ce121a942803eeb4224dcc7db3f0",
+    "portfolio/runs/domain-v1/adapter/tokenizer.json": "9c5ae00e602b8860cbd784ba82a8aa14e8feecec692e7076590d014d7b7fdafa",
+    "portfolio/runs/domain-v1/adapter/tokenizer_config.json": "0d2be11c79ca0320ee8f81abe61f98f4b043df0cd2784109100fb5b21dc78d0b",
+    "portfolio/runs/domain-v1/adapter/vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+    "portfolio/runs/domain-v1/loss.jsonl": "992e0f82f873c19df63120003ca70c15add61aeef4642f1af6e94cba2d1e6ade",
+    "portfolio/runs/domain-v1/manifest.json": "14485db96d3fa25d4ca07a63c3f229f6413a02df3d0ae007e06e759866a03b87",
+    "portfolio/runs/domain-v1/training_article_ids.jsonl": "344b135dfd1ef9297e5bd00bc1449a88c4b1d9d64c6184cb941d923c8bce452b",
+    "portfolio/runs/extraction-only-v1/adapter/adapter_config.json": "2353cfd25010b497654882dac324ebc6ab2dd18a6bdf3ee74cab63733868644f",
+    "portfolio/runs/extraction-only-v1/adapter/adapter_model.safetensors": "173ffaaefbceff781bc8344269eada4c392f66f6d0dc537279b51ae99599245a",
+    "portfolio/runs/extraction-only-v1/adapter/added_tokens.json": "f0acedf99e19ec0a5b797ffbd0b94328172ccd90f7f385bbc521cda2701b03ab",
+    "portfolio/runs/extraction-only-v1/adapter/special_tokens_map.json": "890efa1686cf49870d5018b948316d11c6d9ce121a942803eeb4224dcc7db3f0",
+    "portfolio/runs/extraction-only-v1/adapter/tokenizer.json": "9c5ae00e602b8860cbd784ba82a8aa14e8feecec692e7076590d014d7b7fdafa",
+    "portfolio/runs/extraction-only-v1/adapter/tokenizer_config.json": "0d2be11c79ca0320ee8f81abe61f98f4b043df0cd2784109100fb5b21dc78d0b",
+    "portfolio/runs/extraction-only-v1/adapter/vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+    "portfolio/runs/extraction-only-v1/loss.jsonl": "f015f01e54e77b78ca7557b79ae167e2275bcd986c8c5b7a1505c890712b1680",
+    "portfolio/runs/extraction-only-v1/manifest.json": "37f495a107fbbb970a9e9d97148fed8615f42aa44e89bfec3f8d4f64da3852ad",
+    "portfolio/runs/extraction-only-v1/training_article_ids.jsonl": "27b4df6fcd2cd81e38a9728cc2afd5da019465394ba8bc9f83df12637bc0b16a",
+    "portfolio/training_preparation.json": "7579233f67bf4a58394e604dda66b9361dcaf3aeee41faa81ae741a4186dd500",
+    "portfolio/training_rejections.jsonl": "6aee713930eb463c86311f37b568a0c8d0bc410a1dfd9ca75e1fa27923569485",
+    "legacy/adapter_config.json": "a4bad5a3fdb208bd25018fd037fb09ff6a883498ebc9bf1026729678ba105365",
+    "legacy/adapter_model.safetensors": "3af6a19f9387210e85f7d725633b0c86540516bf825d61ea8487b704b892d5e8",
+    "legacy/added_tokens.json": "f0acedf99e19ec0a5b797ffbd0b94328172ccd90f7f385bbc521cda2701b03ab",
+    "legacy/chat_template.jinja": "8aa40ce145adb73cb3a75194dc0224702a95850ec5275cabb728496bbd749fc6",
+    "legacy/merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+    "legacy/README.md": "a6f7b9573427cf03af8c5204cd9074efe8b86980790a1053283391b90168af40",
+    "legacy/special_tokens_map.json": "57255613bbe23c9497211ca68561ff429a51e871dbaf5a59998fa4c8f7fe168a",
+    "legacy/tokenizer.json": "9c5ae00e602b8860cbd784ba82a8aa14e8feecec692e7076590d014d7b7fdafa",
+    "legacy/tokenizer_config.json": "5fd4cea2574beb6b70ba31582179880d331b723f5b5119ee67c29d45b983f7be",
+    "legacy/vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+  }
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tactical Report Model Pipeline</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand-mark">TR</div>
+      <div>
+        <p class="eyebrow">Runnable learning demonstration</p>
+        <h1>Follow one article through the models</h1>
+        <p class="lede">
+          Every card exposes a real intermediate result: tokens, learned adapter progress,
+          Qwen JSON, cross-language E5 relevance, and the final recommendation score. Expand any stage
+          to see the exact code loaded from the A-to-Z walkthrough notebook.
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <section class="controls card">
+        <label>
+          <span>User interest profile</span>
+          <select id="userSelect"></select>
+        </label>
+        <label>
+          <span>Article to inspect</span>
+          <select id="articleSelect"></select>
+        </label>
+        <button id="runButton" type="button">Run visible pipeline</button>
+        <p id="status" role="status"></p>
+      </section>
+
+      <section id="pipeline" class="pipeline" aria-live="polite"></section>
+
+      <section class="ranked-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Final product output</p>
+            <h2>Ranked recommendations for this user</h2>
+          </div>
+          <p id="rankingSummary"></p>
+        </div>
+        <div id="ranking" class="ranking"></div>
+      </section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

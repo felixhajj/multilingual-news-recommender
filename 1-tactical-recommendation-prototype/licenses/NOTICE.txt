@@ -1,0 +1,8 @@
+Built with Qwen.
+Qwen is licensed under the Qwen RESEARCH LICENSE AGREEMENT, Copyright (c) Alibaba Cloud. All Rights Reserved.
+
+Project modifications: added and trained LoRA adapter matrices for research into news entity extraction and bounded domain adaptation. Base weights and tokenizer vocabulary remain unchanged.
+
+The source agreement is QWEN_RESEARCH_LICENSE.txt. Commercial use requires separate permission from the model provider.
+
+Historical Wikinews article text: Wikinews contributors, CC-BY-2.5. Source revision, contributor attribution links and license URLs accompany each article. Project text is cleaned from source wikitext.

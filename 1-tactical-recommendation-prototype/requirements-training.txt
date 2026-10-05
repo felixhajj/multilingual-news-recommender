@@ -1,0 +1,8 @@
+# Install these into the existing CUDA-enabled Python environment.
+# Keep the environment's working PyTorch CUDA build; do not replace it with CPU-only torch.
+accelerate>=1.0,<2
+bitsandbytes>=0.45,<1
+datasets>=3,<5
+peft>=0.13,<1
+transformers==4.56.2
+trl==0.22.2

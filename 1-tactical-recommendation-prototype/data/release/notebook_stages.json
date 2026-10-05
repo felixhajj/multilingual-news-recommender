@@ -1,0 +1,80 @@
+{
+  "setup": {
+    "title": "1. Locate the project",
+    "source": "from pathlib import Path\nimport sys, os, json\nROOT = next(p for p in [Path.cwd(), *Path.cwd().parents] if (p / \"src\" / \"news_pipeline.py\").exists())\nsys.path.insert(0, str(ROOT))\nos.environ.setdefault(\"NEWS_EMBEDDING_DEVICE\", \"cpu\")\nfrom src.portfolio_config import ARTIFACTS, BASE_MODEL, EMBEDDING_MODEL, configure_cache, read_json, read_jsonl\nconfigure_cache()\nfrom src.portfolio_reports import evidence_report\nprint(\"Project:\", ROOT)\nprint(\"Artifacts:\", ARTIFACTS)\n",
+    "notebook": "notebooks/tactical_report_a_to_z_walkthrough.ipynb",
+    "anchor": "setup"
+  },
+  "evidence": {
+    "title": "2. Check what actually exists",
+    "source": "report = evidence_report()\ndisplay(report)",
+    "notebook": "notebooks/tactical_report_a_to_z_walkthrough.ipynb",
+    "anchor": "evidence"
+  },
+  "inputs": {
+    "title": "3. One real article and your own interest",
+    "source": "examples = read_json(ROOT / \"data\" / \"release\" / \"example_analyses.json\", [])\nif not examples:\n    raise RuntimeError(\"No genuine inference examples yet. Run scripts/build_news_release.py after setup.\")\nanalysis = examples[0]\narticle = analysis[\"article\"]\ninterest = \"Iran nuclear diplomacy and international sanctions\"\nrequired_filters = {\"countries\": [\"Iran\"]}\ndisplay({\"article\": article, \"user_interest\": interest, \"required_filters\": required_filters})",
+    "notebook": "notebooks/tactical_report_a_to_z_walkthrough.ipynb",
+    "anchor": "inputs"
+  },
+  "tokens": {
+    "title": "4. Qwen: text becomes token IDs",
+    "source": "from transformers import AutoTokenizer\ntokenizer = AutoTokenizer.from_pretrained(BASE_MODEL, token=False)\ntext = article[\"title\"] + \"\\n\\n\" + article[\"body\"]\ntoken_ids = tokenizer.encode(text, add_special_tokens=False)\ndisplay({\"model\": BASE_MODEL, \"vocabulary_size\": len(tokenizer), \"article_tokens\": len(token_ids)})\ndisplay(list(zip(tokenizer.convert_ids_to_tokens(token_ids[:30]), token_ids[:30])))",
+    "notebook": "notebooks/tactical_report_a_to_z_walkthrough.ipynb",
+    "anchor": "tokens"
+  },
+  "adapter": {
+    "title": "5. QLoRA: what was actually trained",
+    "source": "for run in report[\"extraction_experiments\"]:\n    display(run)\n    loss_path = ARTIFACTS / \"runs\" / run[\"run_id\"] / \"loss.jsonl\"\n    loss = read_jsonl(loss_path) if loss_path.exists() else []\n    display(loss[:3] + loss[-3:] if loss else \"No saved optimizer steps\")\nfrom src.phase3_configuration import selected_configuration\nselection = selected_configuration()\ndisplay({\"validated_phase3_selection\": selection[\"run_id\"] if selection else None,\n         \"selected_adapter\": str(selection[\"adapter_path\"]) if selection else None,\n         \"displayed_example_model\": analysis[\"model\"]})",
+    "notebook": "notebooks/tactical_report_a_to_z_walkthrough.ipynb",
+    "anchor": "adapter"
+  },
+  "extraction": {
+    "title": "6. Qwen output: generated facts with source evidence",
+    "source": "display({\"generated_at\": analysis[\"generated_at\"], \"cache_key\": analysis[\"cache_key\"],\n         \"raw_generated_text\": analysis[\"raw_model_outputs\"], \"parsed_json\": analysis[\"extraction\"],\n         \"grounded_passages\": analysis[\"evidence\"], \"excluded_predictions\": analysis[\"ungrounded_predictions\"]})",
+    "notebook": "notebooks/tactical_report_a_to_z_walkthrough.ipynb",
+    "anchor": "extraction"
+  },
+  "linking": {
+    "title": "7. Learned entity linking",
+    "source": "from src.phase3_configuration import selected_configuration\nselection = selected_configuration()\ndisplay(analysis[\"entity_links\"])\ndisplay(read_json(selection[\"linker_path\"] / \"metrics.json\", {\"status\": \"metrics unavailable\"}))",
+    "notebook": "notebooks/tactical_report_a_to_z_walkthrough.ipynb",
+    "anchor": "linking"
+  },
+  "filters": {
+    "title": "8. Qwen + linker: the structured recommendation contribution",
+    "source": "from src.news_pipeline import compare_filters\ncomparison, coverage, direct = compare_filters(required_filters, analysis[\"tags\"])\ndisplay(comparison)\ndisplay({\"required_categories_covered\": coverage, \"all_required_categories_match\": direct})",
+    "notebook": "notebooks/tactical_report_a_to_z_walkthrough.ipynb",
+    "anchor": "filters"
+  },
+  "e5": {
+    "title": "9. A different pretrained model: multilingual E5",
+    "source": "from src.learned_linker import encode_batch\nquery_text = \"query: \" + interest\npassage_text = \"passage: \" + text\nvectors = encode_batch([query_text, passage_text])\ndisplay({\"query\": query_text, \"passage\": passage_text, \"vector_shape\": vectors.shape,\n         \"first_8_user_values\": vectors[0, :8].tolist(), \"first_8_article_values\": vectors[1, :8].tolist(),\n         \"cosine_similarity\": float(vectors[0] @ vectors[1])})",
+    "notebook": "notebooks/tactical_report_a_to_z_walkthrough.ipynb",
+    "anchor": "e5"
+  },
+  "phrases": {
+    "title": "10. Show supporting phrase similarities",
+    "source": "from src.embeddings import find_e5_phrase_matches\ndisplay(find_e5_phrase_matches(interest, text))",
+    "notebook": "notebooks/tactical_report_a_to_z_walkthrough.ipynb",
+    "anchor": "phrases"
+  },
+  "ranking": {
+    "title": "11. Rank the current processed collection",
+    "source": "from src.news_pipeline import NewsPipeline\npipeline = NewsPipeline()\nranking = pipeline.recommend(interest, required_filters, limit=5)\ndisplay(ranking)\nsecond_interest = \"Elections and constitutional reform\"\ndisplay(pipeline.recommend(second_interest, limit=5))",
+    "notebook": "notebooks/tactical_report_a_to_z_walkthrough.ipynb",
+    "anchor": "ranking"
+  },
+  "live": {
+    "title": "12. Optional: analyze genuinely new article text",
+    "source": "RUN_LIVE = False\nnew_article = {\"title\": \"Replace with your article title\", \"body\": \"Replace this sentence with a real article you may use.\"}\nif RUN_LIVE:\n    live = pipeline.analyze_article(new_article, persist=False)\n    display(live)\n    display(pipeline.explain(interest, live, required_filters))\nelse:\n    print(\"Live generation not requested. The earlier JSON was a labeled saved model run.\")",
+    "notebook": "notebooks/tactical_report_a_to_z_walkthrough.ipynb",
+    "anchor": "live"
+  },
+  "evaluation": {
+    "title": "13. What counts as evidence",
+    "source": "display(evidence_report())",
+    "notebook": "notebooks/tactical_report_a_to_z_walkthrough.ipynb",
+    "anchor": "evaluation"
+  }
+}

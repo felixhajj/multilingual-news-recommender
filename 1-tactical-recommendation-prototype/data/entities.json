@@ -1,0 +1,98 @@
+[
+  {
+    "entity_id": "country.saudi_arabia",
+    "type": "country",
+    "canonical_name": "Saudi Arabia",
+    "aliases": ["Kingdom of Saudi Arabia", "KSA", "السعودية", "المملكة العربية السعودية"]
+  },
+  {
+    "entity_id": "country.united_states",
+    "type": "country",
+    "canonical_name": "USA",
+    "aliases": ["United States", "United States of America", "US", "الولايات المتحدة"]
+  },
+  {
+    "entity_id": "country.united_arab_emirates",
+    "type": "country",
+    "canonical_name": "United Arab Emirates",
+    "aliases": ["UAE", "Emirates", "الإمارات", "الإمارات العربية المتحدة"]
+  },
+  {
+    "entity_id": "country.france",
+    "type": "country",
+    "canonical_name": "France",
+    "aliases": ["French Republic", "فرنسا"]
+  },
+  {
+    "entity_id": "country.iran",
+    "type": "country",
+    "canonical_name": "Iran",
+    "aliases": ["Islamic Republic of Iran", "إيران"]
+  },
+  {
+    "entity_id": "company.lockheed_martin",
+    "type": "company",
+    "canonical_name": "Lockheed Martin",
+    "aliases": ["Lockheed", "LMT", "لوكهيد مارتن"]
+  },
+  {
+    "entity_id": "company.raytheon",
+    "type": "company",
+    "canonical_name": "Raytheon",
+    "aliases": ["RTX", "ريثيون"]
+  },
+  {
+    "entity_id": "company.mbda",
+    "type": "company",
+    "canonical_name": "MBDA",
+    "aliases": ["إم بي دي إيه"]
+  },
+  {
+    "entity_id": "company.sami",
+    "type": "company",
+    "canonical_name": "SAMI",
+    "aliases": ["Saudi Arabian Military Industries", "الشركة السعودية للصناعات العسكرية"]
+  },
+  {
+    "entity_id": "organization.saudi_mod",
+    "type": "organization",
+    "canonical_name": "Saudi Ministry of Defense",
+    "aliases": ["Saudi MoD", "Ministry of Defense of Saudi Arabia", "وزارة الدفاع السعودية"]
+  },
+  {
+    "entity_id": "organization.rsadf",
+    "type": "organization",
+    "canonical_name": "RSADF",
+    "aliases": ["Royal Saudi Air Defense Forces", "قوات الدفاع الجوي الملكي السعودي"]
+  },
+  {
+    "entity_id": "profile.mohammed_bin_salman",
+    "type": "profile",
+    "canonical_name": "Crown Prince Mohammad",
+    "aliases": ["Mohammed bin Salman", "Mohammad bin Salman", "MBS", "محمد بن سلمان"]
+  },
+  {
+    "entity_id": "profile.recep_tayyip_erdogan",
+    "type": "profile",
+    "canonical_name": "President Erdogan",
+    "aliases": ["Recep Tayyip Erdogan", "Erdogan", "رجب طيب أردوغان"]
+  },
+  {
+    "entity_id": "system.f35",
+    "type": "system",
+    "canonical_name": "F-35",
+    "aliases": ["F35", "F-35 Lightning II"]
+  },
+  {
+    "entity_id": "system.mq9b",
+    "type": "system",
+    "canonical_name": "MQ-9B",
+    "aliases": ["MQ9B", "MQ-9B SkyGuardian", "SkyGuardian"]
+  },
+  {
+    "entity_id": "system.air_defense",
+    "type": "system",
+    "canonical_name": "Air defense systems",
+    "aliases": ["air defence", "air defense", "الدفاع الجوي", "منظومات الدفاع الجوي"]
+  }
+]

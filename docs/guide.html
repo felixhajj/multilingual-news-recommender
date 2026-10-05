@@ -1,0 +1,126 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>News Recommender / Guide</title><link rel="stylesheet" href="site.css"></head><body><nav><a class="brand" href="index.html">BETWEEN LANGUAGES</a><a href="evidence.json">Measured evidence</a></nav><main class="document"><h1>Start Here</h1>
+<h2>The Project</h2>
+<p>Write an interest such as "Iran nuclear diplomacy and sanctions." Rank historical English and Arabic news, or paste a new article to inspect generated facts, entity links and relevance.</p>
+<p><strong>Built with Qwen. Research/evaluation only.</strong> No enterprise affiliation. This is not a current-news feed, fact checker, or production intelligence service.</p>
+<h2>Two-Minute Visitor Route</h2>
+<ol>
+<li>Inspect the labeled, recorded model example without downloading models or waiting for a GPU. Verified public URLs are recorded in <a href="https://github.com/felixhajj/multilingual-news-recommender/blob/main/1-tactical-recommendation-prototype/data/release/deployment.json">deployment.json</a>; an absent URL means public deployment is not verified.</li>
+<li>In the app, change the interest and click <strong>Find relevant articles</strong>. Required filters are separate constraints. The verified local index contains 300 articles (156 Arabic, 144 English) under the selected model versions. Local app and notebook checks passed; public deployment is not verified.</li>
+<li>Select a current-version result. Inspect <strong>Qwen + learned linker</strong> facts versus your filters, then <strong>E5</strong> similarity and phrase probes. Scores are not confidence percentages.</li>
+<li>Paste an article you may use under <strong>Try your own article</strong>. This runs fresh inference, not a prewritten answer. Models stay on the server. Free GPU quotas/startup delays may interrupt this step; saved results and the guide stay readable.</li>
+</ol>
+<h2>Five-Minute Technical Route</h2>
+<p>Open <a href="https://github.com/felixhajj/multilingual-news-recommender/blob/main/1-tactical-recommendation-prototype/notebooks/tactical_report_a_to_z_walkthrough.ipynb">the A-to-Z notebook</a>. Run cells in order in the project kernel. Every block has an explanation; expensive generation is opt-in.</p>
+<table>
+<thead>
+<tr>
+<th>Stable stage</th>
+<th>What you see</th>
+<th>Shared implementation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>inputs</code>, <code>tokens</code></td>
+<td>Article, interest, token pieces and IDs</td>
+<td>Qwen tokenizer</td>
+</tr>
+<tr>
+<td><code>adapter</code></td>
+<td>Loss, optimizer steps, changed weights, checkpoint identity</td>
+<td><code>src/news_training_v3.py</code></td>
+</tr>
+<tr>
+<td><code>extraction</code></td>
+<td>Generated JSON, grounding, unsupported predictions</td>
+<td><code>src/news_pipeline.py</code></td>
+</tr>
+<tr>
+<td><code>linking</code></td>
+<td>Candidates, learned scores, ID or abstention</td>
+<td><code>src/learned_linker.py</code></td>
+</tr>
+<tr>
+<td><code>filters</code></td>
+<td>Requested and article filters side by side</td>
+<td><code>compare_filters</code></td>
+</tr>
+<tr>
+<td><code>e5</code>, <code>phrases</code></td>
+<td>Actual vectors and computed similarities</td>
+<td><code>encode_batch</code>, <code>find_e5_phrase_matches</code></td>
+</tr>
+<tr>
+<td><code>ranking</code>, <code>live</code></td>
+<td>New interest ranking and fresh generation</td>
+<td><code>NewsPipeline</code></td>
+</tr>
+<tr>
+<td><code>evaluation</code></td>
+<td>Measured evidence, completed reviews and limitations</td>
+<td><code>src/news_evaluation.py</code></td>
+</tr>
+</tbody>
+</table>
+<p>Explore <a href="https://github.com/felixhajj/multilingual-news-recommender/blob/main/1-tactical-recommendation-prototype/notebooks/tactical_report_entity_extraction_qlora.ipynb">extraction training</a> for the full trainer and <a href="https://github.com/felixhajj/multilingual-news-recommender/blob/main/1-tactical-recommendation-prototype/notebooks/tactical_report_recommendation_demo.ipynb">recommendation evaluation</a> for keyword/E5/hybrid comparisons. The app uses stage IDs, not fragile cell numbers.</p>
+<h2>Why These Models</h2>
+<p>Qwen2.5-3B-Instruct generates extraction JSON. During QLoRA, its frozen base uses 4-bit storage while small added LoRA matrices learn from article/answer examples. It was already downloaded and fits the local budget; it is not claimed to be globally best.</p>
+<p>Multilingual E5 independently turns article text and the written interest into comparable 768-number vectors. Arabic and English map directly into a shared space, without manual translation. E5 is <strong>not fine-tuned</strong> here. A separate small candidate-ranking classifier is trained using E5 and name features.</p>
+<p>Two specialized models make extraction and retrieval separately testable. Unknown entity links can remain unresolved. Multiple tokens for an Arabic name are normal; fine-tuning does not automatically merge them.</p>
+<h2>Proof And Limits</h2>
+<p>The <a href="https://github.com/felixhajj/multilingual-news-recommender/blob/main/1-tactical-recommendation-prototype/data/release/evidence.json">evidence snapshot</a> comes from actual artifacts, not manually entered scores. Phase 3 selected <code>extraction-only-v3</code> and its learned linker under the predeclared validation rules. Phase 4 has indexed all 300 target articles under those identities; this remains a research prototype, not a production-quality claim.</p>
+<ul>
+<li>Training proof: losses, optimizer steps, processed examples, changed adapter weights and hashes. These prove optimization, not sufficient quality. Failed/time-limited stages stay labeled.</li>
+<li>Extraction quality: JSON parsing, schema validity and entity precision/recall/F1 are separate. All 30 review items are complete: ten validation and twenty test articles, fixed before scoring. They are outside <strong>our training</strong>, not necessarily original model pretraining. Machine-assisted training labels are not human ground truth.</li>
+<li>Linker quality: the held-out pool uses published entity IDs and is article-disjoint from development. Read accepted precision together with coverage; unseen-alias performance is weak, so uncertain names remain unresolved.</li>
+<li>Retrieval quality: all 30 judgments are complete across three ten-article pools. Recall@5 and nDCG@5 are within those pools, not full-corpus scores; only one validation query and two test queries support the comparison.</li>
+<li>Integrity: changed text or models invalidate cached results. Failed inference never substitutes manual tags. Pasted visitor text is not persisted into the public corpus or training data.</li>
+</ul>
+<p>The original 20-mock-example adapter remains an explicitly labeled historical baseline. The selected real-news adapter passed the project's validation gate, but is not a production model. Twenty-three current-version indexing attempts failed extraction/schema checks and remain preserved, alongside the 194 historical failures. The separate live smoke check passed 28 of 30 articles; both failures remain visible. Training alone does not prove quality. Entity co-occurrence does not prove a relationship. Phrase similarities are probes, not internal reasoning. Public Pages and live inference are not verified yet.</p>
+<h2>Reproduce Locally</h2>
+<p>Clone the repository and enter <code>1-tactical-recommendation-prototype</code>. You need code, dependencies and prepared artifacts, not only a notebook. Preserve the existing working environment on this PC; use these steps for a new machine.</p>
+<p>Windows/NVIDIA, Python 3.12:</p>
+<pre><code class="language-powershell">py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cu126
+python -m pip install -r requirements-portfolio.txt bitsandbytes==0.49.2 ipykernel
+python -m ipykernel install --user --name news-recommender --display-name "Python (news recommender)"
+</code></pre>
+<p>Apple Silicon Mac, inference/notebooks only:</p>
+<pre><code class="language-bash">python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install torch==2.6.0
+python -m pip install -r requirements-portfolio.txt ipykernel
+python -m ipykernel install --user --name news-recommender --display-name "Python (news recommender)"
+</code></pre>
+<p>Mac inference uses non-quantized CPU/MPS and needs adequate RAM. CUDA QLoRA training is not promised on macOS. ZeroGPU uses a separate deployment PyTorch profile.</p>
+<p>Restore the pinned runtime artifact before opening the app. Do not repeat training or review to install the release:</p>
+<pre><code class="language-bash">python scripts/restore_news_bundle.py /path/to/runtime-VERSION.zip --destination .
+python portfolio_app.py
+</code></pre>
+<p>Verify the archive SHA-256 against its published manifest first. Runtime bundles exclude base models and dependencies; fresh local inference downloads the pinned base models. The separate private evidence bundle retains training checkpoints and the corpus. Until remote artifacts are published and verified, installation is not claimed to be fully reproducible from public links.</p>
+<p>The following are historical preparation commands, not release installation steps:</p>
+<pre><code class="language-bash">python scripts/prepare_news.py --target 5000
+python scripts/train_linker.py
+python scripts/evaluate_linker_holdout.py
+python scripts/run_news_experiments.py --examples 100 --steps 24 --label-hours 2
+python scripts/evaluate_news.py predict --hours 2
+python scripts/build_news_release.py --limit 300 --hours 3
+python scripts/prepare_ranking_review.py
+python portfolio_app.py
+</code></pre>
+<p>Open <a href="http://127.0.0.1:8502">http://127.0.0.1:8502</a>. Slow preparation is local, not required of website visitors. Run stages serially. The GPU lock prevents conflicting jobs; <code>output/portfolio/processing_budget.json</code> tracks cumulative bounded processing. Generated artifacts remain outside ordinary Git history.</p>
+<h2>Review And Promotion</h2>
+<p>Set <code>NEWS_REVIEW_MODE=1</code>, then run the local app to review thirty extraction examples and thirty relevance judgments. The tab is disabled on the public Space. A real person must supply attributed judgments; the agent cannot fabricate them.</p>
+<pre><code class="language-bash">python scripts/evaluate_news.py score
+python scripts/evaluate_ranking.py
+python scripts/manage_news_model.py promote --run-id extraction-only-v1
+python scripts/build_news_release.py --limit 300 --hours 3
+python scripts/package_news_release.py
+</code></pre>
+<p>Promotion uses validation only: schema validity &gt;= max(0.8, baseline), strictly improved overall F1, and no language F1 regression. Failed candidates stay unpromoted. Restart after promotion and rebuild the matching index. <code>python scripts/manage_news_model.py rollback</code> restores the prior model configuration.</p>
+<p>Use <code>scripts/news_cli.py ingest --article article.json</code> to process new news. <code>scripts/approve_news_corrections.py</code> validates corrections and creates a versioned training dataset, rejecting held-out content. Retraining requires an explicit new run prefix and <code>--corrections-version</code>; inference does not teach the model automatically.</p>
+<h2>Deployment</h2>
+<p>GitHub Pages serves the lightweight guide and genuine saved results. Gradio targets free ZeroGPU, subject to account eligibility and quotas: <a href="https://huggingface.co/docs/hub/spaces-zerogpu">official documentation</a>.</p>
+<p>Authenticate locally with <code>hf auth login</code>, never by putting tokens in chat/code. Run <code>scripts/publish_news_space.py --repo YOUR_ACCOUNT/multilingual-news-recommender</code> after the release checks pass. It requests no paid fallback. Public URLs must be verified before claiming completion. See <a href="https://github.com/felixhajj/multilingual-news-recommender/blob/main/1-tactical-recommendation-prototype/WORK_IN_FUTURE.md">WORK_IN_FUTURE.md</a>.</p>
+</main></body></html>

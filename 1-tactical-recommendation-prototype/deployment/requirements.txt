@@ -1,0 +1,9 @@
+torch==2.8.0
+gradio==5.49.1
+spaces
+transformers==4.56.2
+peft==0.19.1
+accelerate>=1,<2
+sentence-transformers==5.1.2
+scikit-learn==1.7.2
+numpy==2.3.5
